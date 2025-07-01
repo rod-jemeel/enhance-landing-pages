@@ -1,7 +1,25 @@
+'use client';
+
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+
 export default function CustomerServiceSection() {
+  const container = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ['start end', 'end start']
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ['0vh', '-10vh']);
+  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0.6, 1, 1, 0.6]);
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.98, 1, 0.98]);
+
   return (
-    <section className="py-20 px-6 bg-gray-50">
-      <div className="container mx-auto">
+    <section ref={container} className="relative pt-32 pb-20 px-6 bg-gray-50 overflow-hidden">
+      <motion.div 
+        style={{ y, opacity, scale }}
+        className="container mx-auto"
+      >
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="relative rounded-2xl h-96 overflow-hidden">
             <img 
@@ -24,7 +42,7 @@ export default function CustomerServiceSection() {
             </button>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

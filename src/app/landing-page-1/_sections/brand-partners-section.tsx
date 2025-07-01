@@ -1,7 +1,25 @@
+'use client';
+
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+
 export default function BrandPartnersSection() {
+  const container = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ['start end', 'end start']
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ['0vh', '-10vh']);
+  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0.6, 1, 1, 0.6]);
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.98, 1, 0.98]);
+
   return (
-    <section className="py-20 px-6 bg-white">
-      <div className="container mx-auto">
+    <section ref={container} className="relative pt-32 pb-20 px-6 bg-white overflow-hidden">
+      <motion.div 
+        style={{ y, opacity, scale }}
+        className="container mx-auto"
+      >
         <div className="text-center mb-12">
           <span className="text-sm text-gray-500 uppercase tracking-wider">Lorem Ipsum</span>
           <h2 className="text-3xl font-bold text-gray-900 mt-4">LOREM IPSUM DOLOR SIT AMET CONSECTETUR</h2>
@@ -20,7 +38,7 @@ export default function BrandPartnersSection() {
             Lorem Ipsum Dolor
           </button>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

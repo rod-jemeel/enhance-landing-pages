@@ -7,6 +7,16 @@ export default function AboutSection() {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
+    offset: ["start end", "end start"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ['0vh', '-10vh']);
+  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0.5, 1, 1, 0.5]);
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.98, 1, 0.98]);
+
+  const wordContainer = useRef(null);
+  const { scrollYProgress: wordScrollProgress } = useScroll({
+    target: wordContainer,
     offset: ["start 0.9", "start 0.25"],
   });
 
@@ -15,8 +25,11 @@ export default function AboutSection() {
   const words = text.split(" ");
 
   return (
-    <section ref={container} className="py-32 bg-gray-900">
-      <div className="w-full px-6 lg:px-12">
+    <section ref={container} className="relative pt-40 pb-32 bg-gray-900 overflow-hidden">
+      <motion.div
+        style={{ y, opacity, scale }}
+        className="w-full px-6 lg:px-12"
+      >
         <div className="flex">
           <div className="w-full lg:w-1/8 pr-8">
             <div className="flex flex-col">
@@ -30,12 +43,12 @@ export default function AboutSection() {
           </div>
 
           <div className="w-full lg:w-3/4">
-            <p className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+            <p ref={wordContainer} className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
               {words.map((word, i) => {
                 const start = i / words.length;
                 const end = start + 1 / words.length;
                 return (
-                  <Word key={i} progress={scrollYProgress} range={[start, end]}>
+                  <Word key={i} progress={wordScrollProgress} range={[start, end]}>
                     {word}
                   </Word>
                 );
@@ -57,7 +70,7 @@ export default function AboutSection() {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

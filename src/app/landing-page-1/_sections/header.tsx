@@ -7,10 +7,12 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      const heroSectionHeight = window.innerHeight;
+      setIsScrolled(window.scrollY > heroSectionHeight - 100);
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check initial state
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 

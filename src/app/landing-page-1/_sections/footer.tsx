@@ -1,7 +1,24 @@
+'use client';
+
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+
 export default function Footer() {
+  const container = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ['start end', 'end end']
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ['0vh', '-5vh']);
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 1]);
+
   return (
-    <footer className="bg-gray-900 text-white py-16 px-6">
-      <div className="container mx-auto">
+    <footer ref={container} className="relative bg-gray-900 text-white pt-24 pb-16 px-6 overflow-hidden">
+      <motion.div 
+        style={{ y, opacity }}
+        className="container mx-auto"
+      >
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
             <h3 className="text-2xl font-bold mb-4">LUXEDRIVE</h3>
@@ -61,7 +78,7 @@ export default function Footer() {
         <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
           <p>&copy; 2024 Lorem Ipsum. Dolor sit amet consectetur.</p>
         </div>
-      </div>
+      </motion.div>
     </footer>
   );
 }
