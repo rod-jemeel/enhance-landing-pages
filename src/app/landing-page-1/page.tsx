@@ -1,3 +1,7 @@
+'use client';
+
+import { useEffect } from 'react';
+import Lenis from 'lenis';
 import Header from './_sections/header';
 import HeroSection from './_sections/hero-section';
 import AboutSection from './_sections/about-section';
@@ -7,6 +11,21 @@ import CustomerServiceSection from './_sections/customer-service-section';
 import Footer from './_sections/footer';
 
 export default function LandingPage() {
+  useEffect(() => {
+    const lenis = new Lenis();
+
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
