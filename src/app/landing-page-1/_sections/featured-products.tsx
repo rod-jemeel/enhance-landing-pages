@@ -10,6 +10,8 @@ const products = [
     name: "Advanced GLP-1 + GIP℞",
     type: "GLP-1 + GIP",
     price: "$323/mo*",
+    tagline: "Consistent Price Regardless of Dosage",
+    availability: "Available",
     image: "/images/bottle-1.webp",
     features: [
       "4 Weeks of Medication",
@@ -26,6 +28,8 @@ const products = [
     name: "Compounded GLP-1℞",
     type: "GLP-1",
     price: "$212/mo*",
+    tagline: "Consistent Price Regardless of Dosage",
+    availability: "Available",
     image: "/images/bottle-2.webp",
     features: [
       "4 Weeks of Medication",

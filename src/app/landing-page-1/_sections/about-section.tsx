@@ -21,7 +21,7 @@ export default function AboutSection() {
   });
 
   const text =
-    "We are pioneers in luxury automotive experiences, combining cutting-edge technology with timeless elegance. Our commitment to excellence drives every decision we make.";
+    "Our physician-led weight loss program can be your key to a healthier future. This isn't just about the medication, it's a concierge telehealth experience tailored to your needs.";
   const words = text.split(" ");
 
   return (
@@ -36,7 +36,7 @@ export default function AboutSection() {
               <div className="flex items-center gap-3 text-yellow-400 h-[1.2em] lg:mt-2">
                 <div className="w-20 h-[2px] bg-yellow-400"></div>
                 <span className="text-sm uppercase tracking-wider font-medium whitespace-nowrap">
-                  ABOUT
+                  A HEALTHIER YOU
                 </span>
               </div>
             </div>
@@ -59,13 +59,10 @@ export default function AboutSection() {
               <div className="w-3/4 h-[2px] bg-gray-700"></div>
 
               <p className="text-gray-400 text-lg leading-relaxed w-full">
-                Founded with a vision to transform the luxury automotive
-                landscape, we blend innovation with tradition. Our team of
-                experts crafts experiences that go beyond transportation,
-                creating moments that resonate with sophistication and purpose.
-                Every detail is meticulously considered, every interaction
-                carefully designed to exceed the expectations of those who
-                demand excellence.
+                Real progress in health and wellness comes when we treat the whole person—not just the symptoms. 
+                By focusing on personalized care and addressing the root causes of your challenges, 
+                I can help you achieve sustainable results that improve not just your body but your entire quality of life.
+                Let's take this journey to better health together.
               </p>
             </div>
           </div>

@@ -22,8 +22,8 @@ export default function HeroSection() {
         className="absolute inset-0 z-0"
       >
         <Image
-          src="https://images.unsplash.com/photo-1603386329225-868f9b1ee6c9?q=80&w=2069&auto=format&fit=crop"
-          alt="Luxury sports car"
+          src="/images/hero-bg.jpg"
+          alt="Hero Background"
           fill
           quality={100}
           priority
@@ -45,7 +45,7 @@ export default function HeroSection() {
                 transition={{ duration: 0.6 }}
                 className="text-sm text-yellow-400 uppercase tracking-wider font-medium"
               >
-                Lorem Ipsum Dolor
+                Provider Led
               </motion.span>
               <motion.h1 
                 initial={{ opacity: 0, y: 30 }}
@@ -53,8 +53,8 @@ export default function HeroSection() {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="text-5xl lg:text-7xl font-bold text-white mt-4 leading-tight"
               >
-                Lorem ipsum dolor
-                <span className="block text-yellow-400">Sit amet consectetur.</span>
+                Enhance Your
+                <span className="block text-yellow-400">Weight Loss Journey</span>
               </motion.h1>
               <motion.p 
                 initial={{ opacity: 0, y: 30 }}
@@ -62,7 +62,7 @@ export default function HeroSection() {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-gray-200 text-lg mt-6 max-w-lg"
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Affordable weight loss starting at $212/mo. Provider personalized dosages, one all-in price. It's that simple.
               </motion.p>
               <motion.div 
                 initial={{ opacity: 0, y: 30 }}
@@ -70,16 +70,12 @@ export default function HeroSection() {
                 transition={{ duration: 0.8, delay: 0.6 }}
                 className="flex gap-4 mt-8"
               >
-                <select className="bg-white/10 backdrop-blur-md border border-white/20 rounded-lg px-6 py-3 text-white focus:outline-none focus:border-yellow-400 transition-colors">
-                  <option value="" className="text-gray-900">Lorem ipsum dolor</option>
-                  <option value="" className="text-gray-900">Consectetur adipiscing</option>
-                  <option value="" className="text-gray-900">Sed do eiusmod</option>
-                </select>
-                <select className="bg-white/10 backdrop-blur-md border border-white/20 rounded-lg px-6 py-3 text-white focus:outline-none focus:border-yellow-400 transition-colors">
-                  <option value="" className="text-gray-900">Sit amet consectetur</option>
-                  <option value="" className="text-gray-900">Tempor incididunt</option>
-                  <option value="" className="text-gray-900">Labore et dolore</option>
-                </select>
+                <button className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-8 py-3 rounded-full font-medium transition-all hover:scale-105">
+                  Get Started
+                </button>
+                <button className="bg-transparent hover:bg-white/10 text-white border border-white/50 px-8 py-3 rounded-full font-medium transition-all">
+                  Book a Consultation
+                </button>
               </motion.div>
             </div>
             <div className="relative hidden lg:block">
