@@ -67,10 +67,10 @@ export default function FeaturedProducts() {
   };
 
   return (
-    <section ref={container} className="relative h-[95vh] w-full pt-20 bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 overflow-hidden">
+    <section ref={container} className="relative h-[95vh] w-full pt-20 bg-[#1A1E29] overflow-hidden border-t border-[#F0E68C]/20">
       <motion.div 
         style={{ y }}
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-900 via-gray-950 to-black opacity-50"
+        className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#2C3E50] via-[#1A1E29] to-black opacity-50"
       ></motion.div>
       
       <motion.div 
@@ -83,9 +83,9 @@ export default function FeaturedProducts() {
 
         <div className="absolute top-20 right-8 text-white text-right">
           <div className="mb-2">
-            <span className="text-sm text-gray-400">All doses starting at</span>
+            <span className="text-sm text-[#E0E0E0]">All doses starting at</span>
           </div>
-          <div className="text-4xl font-bold text-yellow-400">{currentProduct.price}</div>
+          <div className="text-4xl font-bold bg-gradient-to-r from-[#F0E68C] via-[#FFD700] to-[#D4AF37] bg-clip-text text-transparent">{currentProduct.price}</div>
         </div>
 
         <div className="absolute top-1/2 left-0 transform -translate-y-1/2 w-full overflow-hidden z-0 pointer-events-none select-none">
@@ -146,10 +146,13 @@ export default function FeaturedProducts() {
         </div>
 
         <div className="absolute bottom-8 right-8 flex gap-4">
-          <button className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-8 py-3 rounded-full font-medium transition-all hover:scale-105">
+          <button className="relative overflow-hidden px-8 py-3 rounded-full font-medium transition-all hover:scale-105 text-[#333333] shadow-lg hover:shadow-xl"
+            style={{
+              background: 'linear-gradient(to bottom right, #F0E68C, #D4AF37, #FFD700, #D4AF37)',
+            }}>
             Get Started
           </button>
-          <button className="border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-gray-900 px-8 py-3 rounded-full font-medium transition-all hover:scale-105">
+          <button className="border border-[#F0E68C] text-white hover:bg-white/10 px-8 py-3 rounded-full font-medium transition-all">
             Book a Consultation
           </button>
         </div>
@@ -177,8 +180,8 @@ export default function FeaturedProducts() {
               transition={{ delay: idx * 0.1 }}
               className="flex items-center gap-3 text-gray-400"
             >
-              <Check className="w-4 h-4 text-yellow-400" />
-              <span className="text-sm">{feature}</span>
+              <Check className="w-4 h-4 text-[#B8860B]" />
+              <span className="text-sm text-[#E0E0E0]">{feature}</span>
             </motion.div>
           ))}
         </div>
@@ -189,7 +192,7 @@ export default function FeaturedProducts() {
               key={idx}
               onClick={() => setCurrentIndex(idx)}
               className={`w-2 h-2 rounded-full transition-all ${
-                idx === currentIndex ? 'bg-yellow-400 w-8' : 'bg-gray-600'
+                idx === currentIndex ? 'bg-[#B8860B] w-8' : 'bg-gray-600'
               }`}
             />
           ))}

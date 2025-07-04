@@ -49,14 +49,14 @@ export default function StepsSection() {
   const isMobile = useMediaQuery("(min-width: 640px)");
 
   return (
-    <section className="relative py-20 bg-gradient-to-b from-blue-50 to-white">
+    <section className="relative py-15 bg-white border-t border-[#F0E68C]/20">
       <motion.div className="relative px-8 lg:px-16">
         <div className="text-center mb-10">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-5xl lg:text-6xl font-bold text-blue-900 mb-4"
+            className="text-5xl lg:text-6xl font-bold text-[#2C2C2C] mb-4"
           >
             Your Path to Transformation
           </motion.h2>
@@ -65,7 +65,7 @@ export default function StepsSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-xl text-blue-700 max-w-3xl mx-auto"
+            className="text-xl text-[#666666] max-w-3xl mx-auto"
           >
             Four simple steps to start your journey
           </motion.p>
@@ -79,23 +79,23 @@ export default function StepsSection() {
             activeSlider="assessment"
             className="sm:flex justify-center"
           >
-            <SliderBtnGroup className="sm:relative absolute bottom-0 lg:w-[24rem] sm:w-[20rem] w-full z-10 sm:flex sm:flex-col grid grid-cols-2 sm:h-[540px] h-fit sm:bg-white bg-white/95 backdrop-blur-md overflow-hidden shadow-xl rounded-l-2xl">
+            <SliderBtnGroup className="sm:relative absolute bottom-0 lg:w-[24rem] sm:w-[20rem] w-full z-10 sm:flex sm:flex-col grid grid-cols-2 sm:h-[540px] h-fit sm:bg-[#F8F8F8] bg-[#F8F8F8]/95 backdrop-blur-md overflow-hidden shadow-xl rounded-l-2xl">
               {steps.map((step, index) => (
                 <SliderBtn
                   key={index}
                   value={step.sliderName}
-                  className="text-left sm:py-6 py-4 px-4 sm:px-6 sm:border-b border-gray-200 sm:flex-1 hover:bg-blue-50 transition-colors flex flex-col justify-center"
-                  progressBarClass="left-0 sm:top-0 bottom-0 bg-blue-600 sm:w-1 sm:h-full h-1 before:h-full before:w-1"
+                  className="text-left sm:py-6 py-4 px-4 sm:px-6 sm:border-b border-[#E0E0E0] sm:flex-1 hover:bg-[#F5F5F5] transition-colors flex flex-col justify-center"
+                  progressBarClass="left-0 sm:top-0 bottom-0 bg-[#D4AF37] sm:w-1 sm:h-full h-1 before:h-full before:w-1"
                 >
                   <div className="flex items-center gap-2 mb-2">
-                    <div className="text-blue-600">
+                    <div className="text-[#D4AF37]">
                       {React.cloneElement(step.icon, { className: "w-4 h-4" })}
                     </div>
-                    <h3 className="text-base font-semibold text-blue-900">
+                    <h3 className="text-base font-semibold text-[#333333]">
                       Step {index + 1}: {step.title}
                     </h3>
                   </div>
-                  <p className="text-xs text-blue-600 line-clamp-2 pl-6">
+                  <p className="text-xs text-[#666666] line-clamp-2 pl-6">
                     {step.description}
                   </p>
                 </SliderBtn>
@@ -108,7 +108,7 @@ export default function StepsSection() {
                   key={index}
                   value={step.sliderName}
                 >
-                  <div className="relative w-full h-[540px] bg-gradient-to-br from-blue-100 to-cyan-50 rounded-r-2xl overflow-hidden shadow-xl flex items-center">
+                  <div className="relative w-full h-[540px] bg-gradient-to-br from-[#F8F8F8] to-[#E0E0E0] rounded-r-2xl overflow-hidden shadow-xl flex items-center">
                     <div
                       className="relative w-full"
                       style={{ paddingBottom: "56.25%" }}
@@ -137,7 +137,11 @@ export default function StepsSection() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-12 py-5 rounded-full font-bold text-lg shadow-2xl flex items-center gap-3 hover:shadow-blue-500/25 transition-all hover:from-blue-700 hover:to-cyan-700"
+            className="relative overflow-hidden px-12 py-5 rounded-full font-bold text-lg shadow-2xl flex items-center gap-3 transition-all hover:scale-105 text-[#333333]"
+            style={{
+              background:
+                "linear-gradient(to bottom right, #F0E68C, #D4AF37, #FFD700, #D4AF37)",
+            }}
           >
             Start Your Journey Today
           </motion.button>

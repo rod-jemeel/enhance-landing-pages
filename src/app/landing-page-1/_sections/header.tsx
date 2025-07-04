@@ -19,7 +19,7 @@ export default function Header() {
 
   return (
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/95 backdrop-blur-sm border-b border-gray-100' : 'bg-transparent'
+      isScrolled ? 'bg-white backdrop-blur-sm border-b border-gray-100' : 'bg-transparent'
     }`}>
       <div className="container mx-auto px-6 py-4">
         <nav className="flex items-center justify-between">
@@ -28,26 +28,31 @@ export default function Header() {
               src="/images/enhancemd-logo.webp"
               alt="Enhance.MD"
               fill
-              className="object-contain"
+              className={`object-contain transition-all duration-300 ${
+                isScrolled ? '' : 'brightness-0 invert'
+              }`}
               priority
             />
           </div>
           <div className="hidden md:flex items-center space-x-8">
             <a href="#" className={`transition-colors duration-300 ${
-              isScrolled ? 'text-gray-700 hover:text-gray-900' : 'text-white/90 hover:text-white'
+              isScrolled ? 'text-[#4A4A4A] hover:text-[#333333]' : 'text-white/90 hover:text-white'
             }`}>Medication & Pricing</a>
             <a href="#" className={`transition-colors duration-300 ${
-              isScrolled ? 'text-gray-700 hover:text-gray-900' : 'text-white/90 hover:text-white'
+              isScrolled ? 'text-[#4A4A4A] hover:text-[#333333]' : 'text-white/90 hover:text-white'
             }`}>FAQ</a>
             <a href="#" className={`transition-colors duration-300 ${
-              isScrolled ? 'text-gray-700 hover:text-gray-900' : 'text-white/90 hover:text-white'
+              isScrolled ? 'text-[#4A4A4A] hover:text-[#333333]' : 'text-white/90 hover:text-white'
             }`}>How it Works</a>
             <a href="#" className={`transition-colors duration-300 ${
-              isScrolled ? 'text-gray-700 hover:text-gray-900' : 'text-white/90 hover:text-white'
+              isScrolled ? 'text-[#4A4A4A] hover:text-[#333333]' : 'text-white/90 hover:text-white'
             }`}>Book a Consultation</a>
           </div>
-          <button className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-6 py-2 rounded-full font-medium transition-colors">
-            Get Started
+          <button className="relative overflow-hidden px-6 py-2 rounded-full font-medium transition-all duration-300 text-[#333333] shadow-md hover:shadow-lg"
+            style={{
+              background: 'linear-gradient(to bottom right, #F0E68C, #D4AF37, #FFD700, #D4AF37)',
+            }}>
+            <span className="relative z-10">Get Started</span>
           </button>
         </nav>
       </div>

@@ -8,6 +8,7 @@ import AboutSection from "./_sections/about-section";
 import FeaturedProducts from "./_sections/featured-products";
 import StepsSection from "./_sections/steps-section";
 import CustomerServiceSection from "./_sections/customer-service-section";
+import CTASection from "./_sections/cta-section";
 import Footer from "./_sections/footer";
 
 export default function LandingPage() {
@@ -99,6 +100,7 @@ export default function LandingPage() {
       <FeaturedProducts />
       <StepsSection />
       <CustomerServiceSection />
+      <CTASection />
       <Footer />
     </div>
   );

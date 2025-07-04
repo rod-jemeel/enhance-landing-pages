@@ -29,7 +29,7 @@ export default function HeroSection() {
           priority
           style={{ objectFit: 'cover' }}
         />
-        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-[#1A1E29]/50" />
       </motion.div>
 
       <motion.div 
@@ -43,7 +43,7 @@ export default function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="text-sm text-yellow-400 uppercase tracking-wider font-medium"
+                className="text-sm text-[#D4AF37] uppercase tracking-wider font-medium"
               >
                 Provider Led
               </motion.span>
@@ -54,13 +54,13 @@ export default function HeroSection() {
                 className="text-5xl lg:text-7xl font-bold text-white mt-4 leading-tight"
               >
                 Enhance Your
-                <span className="block text-yellow-400">Weight Loss Journey</span>
+                <span className="block bg-gradient-to-r from-[#F0E68C] via-[#FFD700] to-[#D4AF37] bg-clip-text text-transparent">Weight Loss Journey</span>
               </motion.h1>
               <motion.p 
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-gray-200 text-lg mt-6 max-w-lg"
+                className="text-[#E0E0E0] text-lg mt-6 max-w-lg"
               >
                 Affordable weight loss starting at $212/mo. Provider personalized dosages, one all-in price. It's that simple.
               </motion.p>
@@ -70,10 +70,13 @@ export default function HeroSection() {
                 transition={{ duration: 0.8, delay: 0.6 }}
                 className="flex gap-4 mt-8"
               >
-                <button className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-8 py-3 rounded-full font-medium transition-all hover:scale-105">
+                <button className="relative overflow-hidden px-8 py-3 rounded-full font-medium transition-all hover:scale-105 text-[#333333] shadow-lg hover:shadow-xl"
+                  style={{
+                    background: 'linear-gradient(to bottom right, #F0E68C, #D4AF37, #FFD700, #D4AF37)',
+                  }}>
                   Get Started
                 </button>
-                <button className="bg-transparent hover:bg-white/10 text-white border border-white/50 px-8 py-3 rounded-full font-medium transition-all">
+                <button className="bg-transparent hover:bg-white/10 text-white border border-[#F0E68C] px-8 py-3 rounded-full font-medium transition-all">
                   Book a Consultation
                 </button>
               </motion.div>
@@ -85,8 +88,8 @@ export default function HeroSection() {
                 transition={{ duration: 1, delay: 0.8 }}
                 className="relative z-20"
               >
-                <div className="absolute -top-10 -right-10 w-40 h-40 bg-yellow-400 rounded-full blur-3xl opacity-20"></div>
-                <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-yellow-400 rounded-full blur-2xl opacity-20"></div>
+                <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#B8860B] rounded-full blur-3xl opacity-20"></div>
+                <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-[#F0E68C] rounded-full blur-2xl opacity-20"></div>
               </motion.div>
             </div>
           </div>
