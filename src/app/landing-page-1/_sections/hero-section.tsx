@@ -16,7 +16,7 @@ export default function HeroSection() {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
 
   return (
-    <section ref={container} className="relative h-screen overflow-hidden">
+    <section ref={container} className="relative h-[90vh] overflow-hidden">
       <motion.div 
         style={{ y, scale }} 
         className="absolute inset-0 z-0"

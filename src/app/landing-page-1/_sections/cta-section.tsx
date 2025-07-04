@@ -16,7 +16,7 @@ export default function CTASection() {
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.98, 1, 0.98]);
 
   return (
-    <section ref={container} className="relative py-32 bg-[#1A1E29] overflow-hidden border-t border-[#F0E68C]/20">
+    <section ref={container} className="relative h-[90vh] bg-[#1A1E29] overflow-hidden border-t border-[#F0E68C]/20 flex items-center">
       <div className="absolute inset-0 bg-[url('/noise.png')] opacity-5"></div>
       
       <motion.div 

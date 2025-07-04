@@ -67,7 +67,7 @@ export default function FeaturedProducts() {
   };
 
   return (
-    <section ref={container} className="relative h-[95vh] w-full pt-20 bg-[#1A1E29] overflow-hidden border-t border-[#F0E68C]/20">
+    <section ref={container} className="relative h-[90vh] w-full pt-20 bg-[#1A1E29] overflow-hidden border-t border-[#F0E68C]/20">
       <motion.div 
         style={{ y }}
         className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#2C3E50] via-[#1A1E29] to-black opacity-50"

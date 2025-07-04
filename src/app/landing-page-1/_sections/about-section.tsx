@@ -25,7 +25,7 @@ export default function AboutSection() {
   const words = text.split(" ");
 
   return (
-    <section ref={container} className="relative pt-40 pb-32 bg-[#1A1E29] overflow-hidden border-t border-[#F0E68C]/20">
+    <section ref={container} className="relative h-[90vh] bg-[#1A1E29] overflow-hidden border-t border-[#F0E68C]/20 flex items-center">
       <motion.div
         style={{ y, opacity, scale }}
         className="w-full px-6 lg:px-12"

@@ -16,7 +16,7 @@ export default function CustomerServiceSection() {
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.98, 1, 0.98]);
 
   return (
-    <section ref={container} className="relative py-32 bg-white overflow-hidden border-t border-[#F0E68C]/20">
+    <section ref={container} className="relative h-[90vh] bg-white overflow-hidden border-t border-[#F0E68C]/20 flex items-center">
       <motion.div 
         style={{ y, opacity, scale }}
         className="container mx-auto px-8 lg:px-16"
