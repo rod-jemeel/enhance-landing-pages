@@ -1,57 +1,87 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { FileText, FlaskConical, Video, Package } from "lucide-react";
-import { useMediaQuery } from "@/hooks/use-media-query";
-import {
-  SliderBtnGroup,
-  ProgressSlider,
-  SliderBtn,
-  SliderContent,
-  SliderWrapper,
-} from "@/components/ui/progress-carousel";
+import { AnimatedTabs } from "@/components/ui/animated-tabs";
 
 const steps = [
   {
+    id: "assessment",
+    label: "Step 1",
     title: "Medical Assessment",
     description:
       "Complete health questionnaire in 5-10 minutes for personalized treatment.",
-    icon: <FileText className="w-5 h-5" />,
+    icon: FileText,
     videoId: "KWcO3KoiPg0",
-    sliderName: "assessment",
   },
   {
+    id: "testing",
+    label: "Step 2",
     title: "Lab Testing",
     description:
       "Complete blood work and health screenings at Quest Diagnostics.",
-    icon: <FlaskConical className="w-5 h-5" />,
+    icon: FlaskConical,
     videoId: "mG5I5uryXDk",
-    sliderName: "testing",
   },
   {
+    id: "consultation",
+    label: "Step 3",
     title: "Provider Consultation",
     description: "Meet with licensed providers via secure video call.",
-    icon: <Video className="w-5 h-5" />,
+    icon: Video,
     videoId: "-7QqY7UxlwA",
-    sliderName: "consultation",
   },
   {
+    id: "delivery",
+    label: "Step 4",
     title: "Doorstep Delivery",
     description: "Free home delivery with automatic refills.",
-    icon: <Package className="w-5 h-5" />,
+    icon: Package,
     videoId: "stRKESZuQ6g",
-    sliderName: "delivery",
   },
 ];
 
 export default function StepsSection() {
-  const isMobile = useMediaQuery("(min-width: 640px)");
+  const tabs = steps.map((step) => ({
+    id: step.id,
+    label: step.label,
+    content: (
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full h-full">
+        <div className="flex flex-col justify-center gap-4">
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-12 rounded-full bg-[#D4AF37] flex items-center justify-center shadow-lg">
+              <step.icon className="w-6 h-6 text-white" />
+            </div>
+            <div className="text-3xl font-bold text-[#D4AF37]">
+              {step.label.replace("Step ", "")}
+            </div>
+          </div>
+          <h3 className="text-2xl lg:text-3xl font-bold text-[#333333] mt-2">
+            {step.title}
+          </h3>
+          <p className="text-lg text-[#666666]">
+            {step.description}
+          </p>
+        </div>
+        
+        <div className="relative w-full aspect-video">
+          <iframe
+            src={`https://www.youtube.com/embed/${step.videoId}?rel=0&modestbranding=1`}
+            title={step.title}
+            className="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+      </div>
+    ),
+  }));
 
   return (
-    <section className="relative py-15 bg-white border-t border-[#F0E68C]/20">
-      <motion.div className="relative px-8 lg:px-16">
-        <div className="text-center mb-10">
+    <section className="relative py-20 bg-white border-t border-[#F0E68C]/20">
+      <motion.div className="relative px-8 lg:px-16 max-w-7xl mx-auto">
+        <div className="text-center mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -71,68 +101,24 @@ export default function StepsSection() {
           </motion.p>
         </div>
 
-        <div className="max-w-[84rem] mx-auto">
-          <ProgressSlider
-            vertical={isMobile ? true : false}
-            fastDuration={300}
-            duration={999999}
-            activeSlider="assessment"
-            className="sm:flex justify-center"
-          >
-            <SliderBtnGroup className="sm:relative absolute bottom-0 lg:w-[24rem] sm:w-[20rem] w-full z-10 sm:flex sm:flex-col grid grid-cols-2 sm:h-[540px] h-fit sm:bg-[#F8F8F8] bg-[#F8F8F8]/95 backdrop-blur-md overflow-hidden shadow-xl rounded-l-2xl">
-              {steps.map((step, index) => (
-                <SliderBtn
-                  key={index}
-                  value={step.sliderName}
-                  className="text-left sm:py-6 py-4 px-4 sm:px-6 sm:border-b border-[#E0E0E0] sm:flex-1 hover:bg-[#F5F5F5] transition-colors flex flex-col justify-center"
-                  progressBarClass="left-0 sm:top-0 bottom-0 bg-[#D4AF37] sm:w-1 sm:h-full h-1 before:h-full before:w-1"
-                >
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="text-[#D4AF37]">
-                      {React.cloneElement(step.icon, { className: "w-4 h-4" })}
-                    </div>
-                    <h3 className="text-base font-semibold text-[#333333]">
-                      Step {index + 1}: {step.title}
-                    </h3>
-                  </div>
-                  <p className="text-xs text-[#666666] line-clamp-2 pl-6">
-                    {step.description}
-                  </p>
-                </SliderBtn>
-              ))}
-            </SliderBtnGroup>
-            <SliderContent className="w-full flex-1">
-              {steps.map((step, index) => (
-                <SliderWrapper
-                  className="h-full"
-                  key={index}
-                  value={step.sliderName}
-                >
-                  <div className="relative w-full h-[540px] bg-gradient-to-br from-[#F8F8F8] to-[#E0E0E0] rounded-r-2xl overflow-hidden shadow-xl flex items-center">
-                    <div
-                      className="relative w-full"
-                      style={{ paddingBottom: "56.25%" }}
-                    >
-                      <iframe
-                        src={`https://www.youtube.com/embed/${step.videoId}?rel=0&modestbranding=1`}
-                        title={step.title}
-                        className="absolute top-0 left-0 w-full h-full"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                      />
-                    </div>
-                  </div>
-                </SliderWrapper>
-              ))}
-            </SliderContent>
-          </ProgressSlider>
-        </div>
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex justify-center mb-16"
+        >
+          <AnimatedTabs 
+            tabs={tabs}
+            defaultTab="assessment"
+            className="max-w-6xl w-full"
+          />
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex justify-center mt-10"
+          className="flex justify-center"
         >
           <motion.button
             whileHover={{ scale: 1.05 }}
