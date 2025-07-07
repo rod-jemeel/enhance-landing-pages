@@ -1,0 +1,66 @@
+:root {
+  --rose-gold: #DEA193;
+  --rose-gold-dark: #7E3726;
+  --rose-gold-light: #DEA193;
+  --rose-gold-metallic: linear-gradient(135deg, 
+    #7E3726 0%, 
+    #9B5A4A 10%,
+    #C08072 20%,
+    #DEA193 30%,
+    #E6B5A8 40%,
+    #DEA193 50%,
+    #C08072 60%,
+    #9B5A4A 70%,
+    #7E3726 80%,
+    #6B2F20 90%,
+    #7E3726 100%);
+  --rose-gold-shadow-light: rgba(222, 161, 147, 0.2);
+  --rose-gold-shadow-dark: rgba(126, 55, 38, 0.3);
+  --rose-gold-shadow-intense: rgba(126, 55, 38, 0.4);
+  --text-primary: #4A4A4A;
+  --text-secondary: #6B6B6B;
+  --text-light: #8A8A8A;
+}
+
+.rose-gold-gradient {
+  background: var(--rose-gold-metallic);
+  background-size: 100% 100%;
+  position: relative;
+}
+
+.rose-gold-gradient::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, 
+    transparent 30%, 
+    rgba(255, 255, 255, 0.1) 50%, 
+    transparent 70%);
+  pointer-events: none;
+}
+
+.rose-gold-text {
+  background: linear-gradient(135deg, #7E3726 0%, #C08072 50%, #7E3726 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+}
+
+
+.rose-gold-border {
+  position: relative;
+  background: #FFFFFF;
+}
+
+.rose-gold-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: var(--rose-gold-metallic);
+  border-radius: inherit;
+  z-index: -1;
+}

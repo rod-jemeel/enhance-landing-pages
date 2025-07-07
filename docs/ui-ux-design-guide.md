@@ -27,11 +27,11 @@
 
 #### **RULESET 3: TYPOGRAPHY SYSTEM (MANDATORY)**
 
-**Primary Font:** Use the 'Inter' font family. If unavailable, use 'Manrope'. If both are unavailable, default to a system sans-serif font.
+**Primary Font:** Select a modern, sans-serif font family with excellent legibility and a wide range of weights. Ensure it conveys a sense of luxury and professionalism.
 
 *   **H1 - Primary Headline:**
     *   **Instruction:** Use for the main hero headline ONLY.
-    *   `font-family: 'Lexend', sans-serif;`
+    *   `font-family: var(--font-primary), sans-serif;`
     *   `font-size: 72px;`
     *   `font-weight: 700;` (Bold)
     *   `letter-spacing: -2.5px;`
@@ -39,27 +39,27 @@
 
 *   **H2 - Section Headlines:**
     *   **Instruction:** Use for the title of each major page section.
-    *   `font-family: 'Lexend', sans-serif;`
+    *   `font-family: var(--font-primary), sans-serif;`
     *   `font-size: 52px;`
     *   `font-weight: 700;` (Bold)
     *   `letter-spacing: -1.5px;`
 
 *   **H3 - Sub-headings:**
     *   **Instruction:** Use for supporting titles within a section.
-    *   `font-family: 'Lexend', sans-serif;`
+    *   `font-family: var(--font-primary), sans-serif;`
     *   `font-size: 28px;`
     *   `font-weight: 600;` (Semi-Bold)
 
 *   **Body Text:**
     *   **Instruction:** Use for all standard paragraphs.
-    *   `font-family: 'Lexend', sans-serif;`
+    *   `font-family: var(--font-primary), sans-serif;`
     *   `font-size: 18px;`
     *   `font-weight: 400;` (Regular)
     *   `line-height: 1.7;`
 
 *   **Caption/Label:**
     *   **Instruction:** Use for small labels or image captions.
-    *   `font-family: 'Lexend', sans-serif;`
+    *   `font-family: var(--font-primary), sans-serif;`
     *   `font-size: 14px;`
     *   `font-weight: 500;` (Medium)
     *   `text-transform: uppercase;`
@@ -67,16 +67,27 @@
 
 ---
 
-#### **RULESET 4: COLOR PALETTE (FIXED)**
+#### **RULESET 4: COLOR PALETTE (DYNAMIC)**
 
-*   **Primary/Background:** `#F9F9F9`
-*   **Primary/Text:** `#222222`
-*   **Accent/Action (Buttons, Links):** `#FFD700` (A luxurious gold)
-*   **Supporting/Borders:** `#EAEAEA`
+*   **Primary/Background:** A very light, warm gray. (e.g., `#F9F9F9`)
+*   **Primary/Text:** A soft, dark charcoal. (e.g., `#222222`)
+*   **Accent/Action (Buttons, Links):** A luxurious, vibrant gold. This color should be used consistently for all interactive elements and key highlights. (e.g., `#FFD700`)
+*   **Supporting/Borders:** A subtle, light gray for borders and dividers. (e.g., `#EAEAEA`)
 
 ---
 
-#### **RULESET 5: MEDIA PROTOCOL - "THE ELEVATED FRAME"**
+#### **RULESET 5: CSS VARIABLES (MANDATORY)**
+
+Define the following CSS variables at the root level (e.g., `:root {}` in CSS):
+
+*   `--font-primary`: The chosen primary font family (e.g., `'Lexend'`).
+*   `--color-accent`: The chosen accent color (e.g., `#FFD700`).
+*   `--shadow-accent-light`: A light shadow for the accent color (e.g., `rgba(255, 215, 0, 0.2)`).
+*   `--shadow-accent-dark`: A darker shadow for the accent color (e.g., `rgba(255, 215, 0, 0.3)`).
+
+---
+
+#### **RULESET 6: MEDIA PROTOCOL - "THE ELEVATED FRAME"**
 
 **Instruction:** This styling MUST be applied to all primary images and videos on the page. Treat this as a component or a wrapper class.
 
@@ -90,11 +101,11 @@
 #### **RULESET 6: INTERACTIVE ELEMENT STYLES**
 
 *   **Buttons (Primary CTA):**
-    *   **Base State:** `background-color: #FFD700;` `color: #FFFFFF;` `border-radius: 50px;` `padding: 16px 32px;` `font-weight: 600;` `transition: all 0.3s ease;` `box-shadow: 0px 8px 24px rgba(255, 215, 0, 0.2);`
-    *   **Hover State:** `transform: translateY(-3px);` `box-shadow: 0px 12px 32px rgba(255, 215, 0, 0.3);`
+    *   **Base State:** `background-color: var(--color-accent);` `color: #FFFFFF;` `border-radius: 50px;` `padding: 16px 32px;` `font-weight: 600;` `transition: all 0.3s ease;` `box-shadow: 0px 8px 24px var(--shadow-accent-light);`
+    *   **Hover State:** `transform: translateY(-3px);` `box-shadow: 0px 12px 32px var(--shadow-accent-dark);`
 
 *   **Links:**
-    *   **Base State:** `color: #FFD700;` `text-decoration: none;` `font-weight: 500;`
+    *   **Base State:** `color: var(--color-accent);` `text-decoration: none;` `font-weight: 500;`
     *   **Hover State:** `text-decoration: underline;`
 
 ---
