@@ -1,9 +1,8 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip"
 import { Button } from "@/components/ui/custom-button"
-import { useNavbar } from "@/contexts/navbar-context"
 
 const successStories = [
   {
@@ -118,16 +117,7 @@ const layoutOptions = [
 ]
 
 export default function HeroSection() {
-  const { setIsTransparent } = useNavbar()
   const [selectedLayout, setSelectedLayout] = useState(5)
-
-  useEffect(() => {
-    // Set navbar transparency
-    setIsTransparent(true)
-    
-    // Cleanup function to reset transparency when component unmounts
-    return () => setIsTransparent(false)
-  }, [setIsTransparent])
 
   const currentLayout = layoutOptions.find(layout => layout.id === selectedLayout) || layoutOptions[1]
 
