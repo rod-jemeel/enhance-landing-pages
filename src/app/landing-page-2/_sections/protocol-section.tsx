@@ -18,7 +18,7 @@ export default function ProtocolSection() {
       borderColor: "border-amber-200",
       textColor: "text-amber-900",
       accentColor: "bg-amber-100",
-      image: "/Metabolic Data.png",
+      image: "/images/landing-page-2/protocol-1.5.png",
       cta: "Learn more →",
     },
     {
@@ -42,7 +42,7 @@ export default function ProtocolSection() {
       borderColor: "border-neutral-200",
       textColor: "text-neutral-900",
       accentColor: "bg-neutral-100",
-      image: "/Biological Recalibration.png",
+      image: "/images/landing-page-2/protocol-3.png",
       cta: "Learn more →",
     },
     {
@@ -54,7 +54,7 @@ export default function ProtocolSection() {
       borderColor: "border-gray-200",
       textColor: "text-gray-900",
       accentColor: "bg-gray-100",
-      image: "https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?q=80&w=2070&auto=format&fit=crop",
+      image: "/images/landing-page-2/protocol-4.png",
       cta: "Learn more →",
     },
   ]
