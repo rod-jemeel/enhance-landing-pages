@@ -143,7 +143,7 @@ export default function HeroSection() {
           playsInline
           className="absolute inset-0 h-full w-full object-cover"
         >
-          <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_V5Py85fOiXtkX4lFFgwlrWk5jRcA/F8DPURkRjElKG80aJGVbAj/public/videos/social_u7488359357_super_close-up_of_a_fit_womans_toned_torso_in_min_1a122104-047f-4f05-b23f-a15819f9c2e1_1.mp4" type="video/mp4" />
+          <source src="/videos/hero-video (2).mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/20" />
         
