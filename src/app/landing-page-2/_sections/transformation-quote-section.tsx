@@ -11,7 +11,7 @@ export default function TransformationQuoteSection() {
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
       >
-        <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_V5Py85fOiXtkX4lFFgwlrWk5jRcA/N-_EtY5eHymKSDC7nQapnu/public/videos/social_u7488359357_super_close-up_of_a_fit_womans_toned_torso_in_min_db1a6e22-5dc6-49ff-83d7-ea6e77626cac_3.mp4" type="video/mp4" />
+        <source src="/videos/transformation-quote.mp4" type="video/mp4" />
       </video>
       
       {/* Overlay */}
