@@ -119,7 +119,7 @@ const layoutOptions = [
 
 export default function HeroSection() {
   const { setIsTransparent } = useNavbar()
-  const [selectedLayout, setSelectedLayout] = useState(2)
+  const [selectedLayout, setSelectedLayout] = useState(5)
 
   useEffect(() => {
     // Set navbar transparency
