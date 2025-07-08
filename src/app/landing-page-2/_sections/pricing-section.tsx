@@ -2,21 +2,52 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/custom-button"
+import { cn } from "@/lib/utils"
+import { Check } from 'lucide-react'
 
 export default function PricingSection() {
-  const [showDetails, setShowDetails] = useState(false)
+  const [selectedProduct, setSelectedProduct] = useState<'standard' | 'advanced'>('advanced')
+
+  const products = {
+    standard: {
+      name: 'Standard GLP-1℞',
+      price: 212,
+      features: [
+        '4 Weeks of GLP-1 Medication',
+        'Provider Consultations',
+        'Basic Metabolic Testing',
+        'Injection Supplies',
+        'Digital Platform Access',
+        'Email Support',
+      ],
+    },
+    advanced: {
+      name: 'Advanced GLP-1 + GIP℞',
+      price: 323,
+      features: [
+        '4 Weeks of Dual Medication',
+        'Ongoing Provider Care & Support',
+        'Metabolic Laboratory Testing Every 6 Months',
+        'Syringes & Alcohol Pads Kit',
+        'Nutrition & Wellness Coaching',
+        'Platform Access & Educational Content',
+      ],
+    },
+  }
+
+  const currentProduct = products[selectedProduct]
 
   return (
     <section className="py-16 sm:py-24 md:py-32 px-6 sm:px-8 md:px-16 lg:px-20 bg-white">
       <div className="max-w-7xl mx-auto">
-        {/* Intro section */}
+        {/* Header */}
         <div className="grid md:grid-cols-2 gap-6 sm:gap-8 items-start mb-12 sm:mb-20 md:mb-24">
           <div className="space-y-3 sm:space-y-4">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-gray-900" style={{ fontFamily: "Nouvelle Grotesk" }}>
-              Investment in Your Metabolic Future
+              Comprehensive Care for a Healthier Future
             </h2>
             <p className="text-base sm:text-lg text-gray-700 leading-relaxed max-w-2xl">
-              Premium medical care that delivers real results. No gimmicks, no shortcuts—just proven science and comprehensive support for lasting transformation.
+              We believe in all-inclusive care. Your plan includes everything you need for a successful transformation, with one consistent price from your first dose to your last. This is medical weight loss, simplified.
             </p>
           </div>
           <div className="flex items-center justify-start sm:justify-end mt-4 sm:mt-0">
@@ -26,84 +57,71 @@ export default function PricingSection() {
           </div>
         </div>
 
-        {/* Product section */}
-        <div className="space-y-4 sm:space-y-6">
-          {/* Video container - full width rectangle */}
-          <div className="relative h-[300px] sm:h-[400px] lg:h-[500px] overflow-hidden rounded-xl sm:rounded-2xl">
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover"
+        {/* Product Tabs */}
+        <div className="flex justify-center mb-12">
+          <div className="inline-flex p-1 bg-gray-100 rounded-full">
+            <button
+              onClick={() => setSelectedProduct('standard')}
+              className={cn(
+                "px-6 py-2 rounded-full text-sm font-medium transition-all",
+                selectedProduct === 'standard'
+                  ? "bg-white text-black shadow-sm"
+                  : "text-gray-600 hover:text-gray-900"
+              )}
             >
-              <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_V5Py85fOiXtkX4lFFgwlrWk5jRcA/-zl6-wBHiE84JNdgsPYEUC/public/videos/Minimal_Product_Shot_Video_Ready.mp4" type="video/mp4" />
-            </video>
+              Standard GLP-1
+            </button>
+            <button
+              onClick={() => setSelectedProduct('advanced')}
+              className={cn(
+                "px-6 py-2 rounded-full text-sm font-medium transition-all",
+                selectedProduct === 'advanced'
+                  ? "bg-white text-black shadow-sm"
+                  : "text-gray-600 hover:text-gray-900"
+              )}
+            >
+              Advanced GLP-1 + GIP
+            </button>
           </div>
+        </div>
 
-          {/* Title and price below video */}
-          <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-baseline gap-2">
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-light text-gray-900" style={{ fontFamily: "Nouvelle Grotesk" }}>
-              Advanced GLP-1 + GIP℞
-            </h3>
-            <p className="text-xl sm:text-2xl lg:text-3xl font-light text-gray-900" style={{ fontFamily: "Nouvelle Grotesk" }}>
-              $323/mo
-            </p>
+        {/* Split View Layout */}
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h3 className="text-5xl font-light mb-4 text-gray-900" style={{ fontFamily: "Nouvelle Grotesk" }}>{currentProduct.name}</h3>
+            <p className="text-lg text-gray-600 mb-8">Premium medical care that delivers real results. No gimmicks, no shortcuts.</p>
+            <div className="mb-8">
+              <span className="text-6xl font-light text-gray-900">${currentProduct.price}</span>
+              <span className="text-2xl text-gray-600">/month</span>
+            </div>
+            <Button variant="default" className="mb-4">Start Your Journey</Button>
+            <p className="text-sm text-gray-500">12-month commitment • Prescription required</p>
           </div>
+          <div className="relative">
+            <img 
+              src="/u7488359357_product_photo_of_a_plain_medical_vial_for_GLP-1_w_1a39bc17-8f61-449b-be38-41204fd21630_1.png" 
+              alt="GLP-1 Product"
+              className="w-full h-[400px] object-cover rounded-2xl"
+            />
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/60 to-transparent p-8 rounded-b-2xl">
+              <h4 className="text-white font-medium mb-4">Everything Included:</h4>
+              <div className="grid grid-cols-2 gap-x-4 gap-y-2">
+                {currentProduct.features.map((feature, i) => (
+                  <div key={i} className="flex items-start gap-2">
+                    <Check className="w-4 h-4 text-white mt-0.5 flex-shrink-0" />
+                    <span className="text-xs text-white/90">{feature}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
 
-          {/* Info container - separate */}
-          <div className="rounded-xl sm:rounded-2xl p-6 sm:p-8 lg:p-12" style={{ backgroundColor: '#f1f0ed' }}>
-            {!showDetails ? (
-              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">
-                <p className="text-base sm:text-lg" style={{ color: '#67645e' }}>
-                  Everything you need: medication, provider care, lab testing, supplies, coaching, and educational resources.
-                </p>
-                <button 
-                  onClick={() => setShowDetails(true)}
-                  className="hover:opacity-70 transition-opacity text-sm font-light flex items-center gap-2 self-start sm:ml-4 flex-shrink-0" 
-                  style={{ fontFamily: "Nouvelle Grotesk", color: '#67645e' }}
-                >
-                  More info
-                  <span className="text-xs">↓</span>
-                </button>
-              </div>
-            ) : (
-              <div className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-3">
-                    <p style={{ color: '#67645e' }}>• 4 Weeks of Medication</p>
-                    <p style={{ color: '#67645e' }}>• Ongoing Provider Care & Support</p>
-                    <p style={{ color: '#67645e' }}>• Metabolic Laboratory Testing Every 6 Months</p>
-                  </div>
-                  <div className="space-y-3">
-                    <p style={{ color: '#67645e' }}>• Syringes & Alcohol Pads Kit</p>
-                    <p style={{ color: '#67645e' }}>• Nutrition & Wellness Coaching</p>
-                    <p style={{ color: '#67645e' }}>• Platform Access & Educational Content</p>
-                  </div>
-                </div>
-                
-                <div className="flex justify-between items-center pt-6 border-t" style={{ borderColor: '#67645e33' }}>
-                  <div className="space-y-2">
-                    <Button variant="default">
-                      Get Started
-                    </Button>
-                    <div className="text-xs space-y-0.5" style={{ color: '#67645e', opacity: 0.7 }}>
-                      <p>*Payable up front with a 12-month plan.</p>
-                      <p>Prescription products require an online consultation.</p>
-                    </div>
-                  </div>
-                  <button 
-                    onClick={() => setShowDetails(false)}
-                    className="hover:opacity-70 transition-opacity text-sm font-light flex items-center gap-2" 
-                    style={{ fontFamily: "Nouvelle Grotesk", color: '#67645e' }}
-                  >
-                    Less info
-                    <span className="text-xs">↑</span>
-                  </button>
-                </div>
-              </div>
-            )}
-          </div>
+        {/* Footer notes */}
+        <div className="mt-12 text-center">
+          <p className="text-sm text-gray-500">
+            *Payable up front with a 12-month plan. Prescription products require an online consultation.
+          </p>
         </div>
       </div>
     </section>
