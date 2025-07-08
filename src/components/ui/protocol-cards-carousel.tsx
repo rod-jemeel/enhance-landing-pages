@@ -175,7 +175,7 @@ export const ProtocolCard = ({
     <>
       <AnimatePresence>
         {open && (
-          <div className="fixed inset-0 z-50 h-screen overflow-auto">
+          <div className="fixed inset-0 z-50 flex items-center justify-center overflow-auto">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -183,11 +183,11 @@ export const ProtocolCard = ({
               className="fixed inset-0 h-full w-full bg-black/80 backdrop-blur-lg"
             />
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
               ref={containerRef}
-              className="relative z-[60] mx-auto my-10 h-fit max-w-3xl rounded-3xl bg-white p-8 md:p-12 dark:bg-neutral-900"
+              className="relative z-[60] mx-auto my-8 h-fit max-w-3xl rounded-3xl bg-white p-8 md:p-12 dark:bg-neutral-900"
             >
               <button
                 className="absolute top-6 right-6 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
