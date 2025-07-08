@@ -1,234 +1,111 @@
-'use client';
+"use client"
 
-import Image from 'next/image';
-import { colors } from '@/lib/colors';
+import { useState } from "react"
+import { Button } from "@/components/ui/custom-button"
 
 export default function PricingSection() {
+  const [showDetails, setShowDetails] = useState(false)
+
   return (
-    <section className='bg-gradient-to-br from-[#FFFFFF] via-[#F5F0EC] to-[#EAEAEA] text-[#3D3D3D] flex items-center justify-center h-screen sticky top-0 rounded-tr-[3rem] rounded-tl-[3rem] overflow-hidden z-40 relative'>
-      {/* Luxury background */}
-      <div className='absolute inset-0'>
-        <Image
-          src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1920&auto=format&fit=crop'
-          alt='Abstract luxury'
-          fill
-          className='object-cover opacity-10'
-        />
-      </div>
-      
-      {/* Floating elements */}
-      <div className='absolute top-20 left-20'>
-        <Image
-          src='https://images.unsplash.com/photo-1629904853893-c2c8981a1dc5?w=800&auto=format&fit=crop'
-          alt='Gold texture'
-          width={300}
-          height={300}
-          className='opacity-20 rounded-full blur-sm'
-        />
-      </div>
-      
-      <div className='relative z-10 w-full max-w-6xl mx-auto px-8 py-6'>
-        <div className='text-center space-y-4'>
-          <div>
-            <h2 className='text-3xl md:text-4xl font-light tracking-tight leading-[120%]'>
-              Choose Your
-              <br />
-              <span className='font-medium bg-clip-text text-transparent' style={{ backgroundImage: colors.deepRoseGold.gradient }}>
-                Transformation Plan
-              </span>
+    <section className="py-16 sm:py-24 md:py-32 px-6 sm:px-8 md:px-16 lg:px-20 bg-white">
+      <div className="max-w-7xl mx-auto">
+        {/* Intro section */}
+        <div className="grid md:grid-cols-2 gap-6 sm:gap-8 items-start mb-12 sm:mb-20 md:mb-24">
+          <div className="space-y-3 sm:space-y-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-gray-900" style={{ fontFamily: "Nouvelle Grotesk" }}>
+              Investment in Your Metabolic Future
             </h2>
-            <p className='text-base text-[#6B6B6B] mt-2 max-w-3xl mx-auto'>
-              Two powerful options, both with transparent pricing and comprehensive care.
+            <p className="text-base sm:text-lg text-gray-700 leading-relaxed max-w-2xl">
+              Premium medical care that delivers real results. No gimmicks, no shortcuts—just proven science and comprehensive support for lasting transformation.
             </p>
           </div>
-          
-          <div className='grid lg:grid-cols-2 gap-6 max-w-5xl mx-auto'>
-            {/* Standard Plan */}
-            <div className='bg-white rounded-3xl shadow-xl overflow-hidden transform hover:scale-105 transition-all'>
-              <div className='bg-[#F5F0EC] p-5 relative overflow-hidden'>
-                {/* Product Image */}
-                <div className='absolute -right-8 -top-8 w-40 h-40 opacity-30'>
-                  <Image
-                    src='/images/bottle-2.webp'
-                    alt='Standard Formula'
-                    width={160}
-                    height={160}
-                    className='object-contain rotate-12'
-                  />
-                </div>
-                <div className='flex items-center justify-center gap-3 mb-3'>
-                  <span className='text-sm font-medium uppercase tracking-wider text-[#6B6B6B]'>Standard</span>
-                </div>
-                <h3 className='text-xl font-bold mb-2 text-[#3D3D3D]'>GLP-1℞</h3>
-                <p className='text-[#6B6B6B] text-sm'>All doses</p>
-                <div className='mt-6'>
-                  <p className='text-base text-[#6B6B6B]'>starting at</p>
-                  <p className='text-4xl font-bold text-[#3D3D3D]'>$212</p>
-                  <p className='text-lg text-[#6B6B6B]'>/mo*</p>
-                </div>
+          <div className="flex items-center justify-start sm:justify-end mt-4 sm:mt-0">
+            <Button variant="default" className="w-full sm:w-auto">
+              See Pricing Details
+            </Button>
+          </div>
+        </div>
+
+        {/* Product section */}
+        <div className="space-y-4 sm:space-y-6">
+          {/* Video container - full width rectangle */}
+          <div className="relative h-[300px] sm:h-[400px] lg:h-[500px] overflow-hidden rounded-xl sm:rounded-2xl">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+            >
+              <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_V5Py85fOiXtkX4lFFgwlrWk5jRcA/-zl6-wBHiE84JNdgsPYEUC/public/videos/Minimal_Product_Shot_Video_Ready.mp4" type="video/mp4" />
+            </video>
+          </div>
+
+          {/* Title and price below video */}
+          <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-baseline gap-2">
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-light text-gray-900" style={{ fontFamily: "Nouvelle Grotesk" }}>
+              Advanced GLP-1 + GIP℞
+            </h3>
+            <p className="text-xl sm:text-2xl lg:text-3xl font-light text-gray-900" style={{ fontFamily: "Nouvelle Grotesk" }}>
+              $323/mo
+            </p>
+          </div>
+
+          {/* Info container - separate */}
+          <div className="rounded-xl sm:rounded-2xl p-6 sm:p-8 lg:p-12" style={{ backgroundColor: '#f1f0ed' }}>
+            {!showDetails ? (
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">
+                <p className="text-base sm:text-lg" style={{ color: '#67645e' }}>
+                  Everything you need: medication, provider care, lab testing, supplies, coaching, and educational resources.
+                </p>
+                <button 
+                  onClick={() => setShowDetails(true)}
+                  className="hover:opacity-70 transition-opacity text-sm font-light flex items-center gap-2 self-start sm:ml-4 flex-shrink-0" 
+                  style={{ fontFamily: "Nouvelle Grotesk", color: '#67645e' }}
+                >
+                  More info
+                  <span className="text-xs">↓</span>
+                </button>
               </div>
-              
-              <div className='bg-white p-5'>
-                <div className='space-y-3 mb-5'>
-                  <h4 className='text-base font-bold text-[#3D3D3D] mb-3'>Everything Included:</h4>
-                  <div className='grid gap-2'>
-                    <div className='flex items-start gap-2'>
-                      <div className='w-5 h-5 bg-[#3D3D3D] rounded-full flex-shrink-0 flex items-center justify-center mt-0.5'>
-                        <span className='text-white text-xs font-bold'>✓</span>
-                      </div>
-                      <div>
-                        <p className='font-semibold text-sm'>4 Weeks of Medication</p>
-                        <p className='text-xs text-[#6B6B6B]'>GLP-1 compounded medication</p>
-                      </div>
-                    </div>
-                    
-                    <div className='flex items-start gap-2'>
-                      <div className='w-5 h-5 bg-[#3D3D3D] rounded-full flex-shrink-0 flex items-center justify-center mt-0.5'>
-                        <span className='text-white text-xs font-bold'>✓</span>
-                      </div>
-                      <div>
-                        <p className='font-semibold text-sm'>Provider Care & Support</p>
-                        <p className='text-xs text-[#6B6B6B]'>Personalized medical guidance</p>
-                      </div>
-                    </div>
-                    
-                    <div className='flex items-start gap-2'>
-                      <div className='w-5 h-5 bg-[#3D3D3D] rounded-full flex-shrink-0 flex items-center justify-center mt-0.5'>
-                        <span className='text-white text-xs font-bold'>✓</span>
-                      </div>
-                      <div>
-                        <p className='font-semibold text-sm'>Lab Testing</p>
-                        <p className='text-xs text-[#6B6B6B]'>Every 6 months</p>
-                      </div>
-                    </div>
-                    
-                    <div className='flex items-start gap-2'>
-                      <div className='w-5 h-5 bg-[#3D3D3D] rounded-full flex-shrink-0 flex items-center justify-center mt-0.5'>
-                        <span className='text-white text-xs font-bold'>✓</span>
-                      </div>
-                      <div>
-                        <p className='font-semibold text-sm'>Supply Kit</p>
-                        <p className='text-xs text-[#6B6B6B]'>Syringes & alcohol pads</p>
-                      </div>
-                    </div>
-                    
-                    <div className='flex items-start gap-2'>
-                      <div className='w-5 h-5 bg-[#3D3D3D] rounded-full flex-shrink-0 flex items-center justify-center mt-0.5'>
-                        <span className='text-white text-xs font-bold'>✓</span>
-                      </div>
-                      <div>
-                        <p className='font-semibold text-sm'>Wellness Coaching</p>
-                        <p className='text-xs text-[#6B6B6B]'>Nutrition guidance</p>
-                      </div>
-                    </div>
+            ) : (
+              <div className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-3">
+                    <p style={{ color: '#67645e' }}>• 4 Weeks of Medication</p>
+                    <p style={{ color: '#67645e' }}>• Ongoing Provider Care & Support</p>
+                    <p style={{ color: '#67645e' }}>• Metabolic Laboratory Testing Every 6 Months</p>
+                  </div>
+                  <div className="space-y-3">
+                    <p style={{ color: '#67645e' }}>• Syringes & Alcohol Pads Kit</p>
+                    <p style={{ color: '#67645e' }}>• Nutrition & Wellness Coaching</p>
+                    <p style={{ color: '#67645e' }}>• Platform Access & Educational Content</p>
                   </div>
                 </div>
                 
-                <button className='w-full bg-[#3D3D3D] hover:bg-[#2D2D2D] text-white font-bold py-3 px-6 rounded-full text-base transition-all'>
-                  Start Standard Program
-                </button>
-              </div>
-            </div>
-            
-            {/* Advanced Plan */}
-            <div className='rounded-3xl shadow-2xl overflow-hidden transform hover:scale-105 transition-all' style={{ background: colors.deepRoseGold.gradient }}>
-              <div className='bg-[#3D3D3D] p-5 text-white relative overflow-hidden'>
-                {/* Product Image */}
-                <div className='absolute -right-8 -top-8 w-40 h-40 opacity-30'>
-                  <Image
-                    src='/images/bottle-1.webp'
-                    alt='Advanced Formula'
-                    width={160}
-                    height={160}
-                    className='object-contain rotate-12'
-                  />
-                </div>
-                <div className='flex items-center justify-center gap-3 mb-3'>
-                  <span className='text-sm font-medium uppercase tracking-wider'>Advanced</span>
-                  <div className='bg-white rounded-full px-3 py-1 text-xs font-bold text-[#3D3D3D]'>PREMIUM</div>
-                </div>
-                <h3 className='text-xl font-bold mb-2'>GLP-1 + GIP℞</h3>
-                <p className='text-white text-sm'>All doses</p>
-                <div className='mt-6'>
-                  <p className='text-base text-white'>starting at</p>
-                  <p className='text-4xl font-bold'>$323</p>
-                  <p className='text-lg text-white'>/mo*</p>
-                </div>
-              </div>
-              
-              <div className='bg-white p-5'>
-                <div className='space-y-3 mb-5'>
-                  <h4 className='text-base font-bold text-[#3D3D3D] mb-3'>Everything Included:</h4>
-                  <div className='grid gap-2'>
-                    <div className='flex items-start gap-2'>
-                      <div className='w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center mt-0.5' style={{ background: colors.deepRoseGold.gradient }}>
-                        <span className='text-white text-xs font-bold'>✓</span>
-                      </div>
-                      <div>
-                        <p className='font-semibold text-sm'>4 Weeks of Medication</p>
-                        <p className='text-xs text-[#6B6B6B]'>GLP-1 + GIP dual-action formula</p>
-                      </div>
-                    </div>
-                    
-                    <div className='flex items-start gap-2'>
-                      <div className='w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center mt-0.5' style={{ background: colors.deepRoseGold.gradient }}>
-                        <span className='text-white text-xs font-bold'>✓</span>
-                      </div>
-                      <div>
-                        <p className='font-semibold text-sm'>Premium Provider Care</p>
-                        <p className='text-xs text-[#6B6B6B]'>Enhanced medical support</p>
-                      </div>
-                    </div>
-                    
-                    <div className='flex items-start gap-2'>
-                      <div className='w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center mt-0.5' style={{ background: colors.deepRoseGold.gradient }}>
-                        <span className='text-white text-xs font-bold'>✓</span>
-                      </div>
-                      <div>
-                        <p className='font-semibold text-sm'>Metabolic Lab Testing</p>
-                        <p className='text-xs text-[#6B6B6B]'>Comprehensive panels</p>
-                      </div>
-                    </div>
-                    
-                    <div className='flex items-start gap-2'>
-                      <div className='w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center mt-0.5' style={{ background: colors.deepRoseGold.gradient }}>
-                        <span className='text-white text-xs font-bold'>✓</span>
-                      </div>
-                      <div>
-                        <p className='font-semibold text-sm'>Premium Supply Kit</p>
-                        <p className='text-xs text-[#6B6B6B]'>Everything for administration</p>
-                      </div>
-                    </div>
-                    
-                    <div className='flex items-start gap-2'>
-                      <div className='w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center mt-0.5' style={{ background: colors.deepRoseGold.gradient }}>
-                        <span className='text-white text-xs font-bold'>✓</span>
-                      </div>
-                      <div>
-                        <p className='font-semibold text-sm'>VIP Wellness Coaching</p>
-                        <p className='text-xs text-[#6B6B6B]'>Priority support access</p>
-                      </div>
+                <div className="flex justify-between items-center pt-6 border-t" style={{ borderColor: '#67645e33' }}>
+                  <div className="space-y-2">
+                    <Button variant="default">
+                      Get Started
+                    </Button>
+                    <div className="text-xs space-y-0.5" style={{ color: '#67645e', opacity: 0.7 }}>
+                      <p>*Payable up front with a 12-month plan.</p>
+                      <p>Prescription products require an online consultation.</p>
                     </div>
                   </div>
+                  <button 
+                    onClick={() => setShowDetails(false)}
+                    className="hover:opacity-70 transition-opacity text-sm font-light flex items-center gap-2" 
+                    style={{ fontFamily: "Nouvelle Grotesk", color: '#67645e' }}
+                  >
+                    Less info
+                    <span className="text-xs">↑</span>
+                  </button>
                 </div>
-                
-                <button className='w-full bg-[#3D3D3D] hover:bg-[#2D2D2D] text-white font-bold py-3 px-6 rounded-full text-base transition-all shadow-xl'>
-                  Start Advanced Program
-                </button>
               </div>
-            </div>
-          </div>
-          
-          <div className='mt-6 space-y-2 max-w-4xl mx-auto'>
-            <p className='text-xs text-[#6B6B6B] text-center'>
-              *Payable up front with a 12-month plan. Prescription products require an online consultation with a healthcare professional who will determine if a prescription is appropriate.
-            </p>
-            <p className='text-xs text-[#6B6B6B] text-center'>
-              This is a compounded medication and is not FDA-approved. Its safety or effectiveness has not been verified by the FDA.
-            </p>
+            )}
           </div>
         </div>
       </div>
     </section>
-  );
+  )
 }
