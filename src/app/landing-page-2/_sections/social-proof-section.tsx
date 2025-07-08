@@ -99,17 +99,16 @@ export default function SocialProofSection() {
   return (
     <section className="py-12 sm:py-16 px-6 sm:px-8 md:px-16 lg:px-20">
       <div className="flex flex-col sm:flex-row items-start justify-between mb-8 sm:mb-12 gap-4">
-        <div className="max-w-2xl">
+        <div className="max-w-3xl">
           <h2 className="text-2xl sm:text-3xl font-light tracking-tight text-gray-900 md:text-4xl mb-3 sm:mb-4" style={{ fontFamily: "Nouvelle Grotesk" }}>
             Real People. Real Science. Real Results.
           </h2>
           <p className="text-base sm:text-lg text-gray-600" style={{ fontFamily: "Nouvelle Grotesk" }}>
-            Join over 10,000 patients who've reclaimed their health through our physician-led GLP-1 program. 
-            These aren't just success stories—they're proof that medical weight loss works when done right.
+            Join the thousands of members who have transformed their health with our provider-led GLP-1 program. This is proof that a comprehensive, physician-guided approach delivers sustainable, life-changing outcomes.
           </p>
         </div>
         <Button variant="default" className="w-full sm:w-auto sm:ml-8">
-          Read Success Stories
+          See Their Stories
         </Button>
       </div>
       <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden">
