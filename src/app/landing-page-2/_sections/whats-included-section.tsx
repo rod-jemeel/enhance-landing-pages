@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Button } from "@/components/ui/custom-button";
+import { Package, FlaskConical, Users, TestTube } from "lucide-react";
 
 export default function WhatsIncludedSection() {
   const [expandedItems, setExpandedItems] = useState<Record<string, boolean>>({});
@@ -15,24 +16,28 @@ export default function WhatsIncludedSection() {
 
   const features = [
     {
-      title: "Advanced GLP-1 Medication",
-      summary: "FDA-approved Semaglutide delivered to your door.",
-      description: "The same powerful medication used by celebrities and executives worldwide. Our pharmacy-grade GLP-1 agonists are carefully formulated and quality-tested to ensure maximum efficacy and safety.",
+      title: "Provider-Prescribed GLP-1 Medication",
+      summary: "Powerful, compounded GLP-1 medication personalized to your needs.",
+      description: "Receive a powerful, compounded GLP-1 medication, personalized to your needs by your provider. Our medications are prepared by trusted, vetted pharmacies to ensure quality and efficacy.",
+      icon: <FlaskConical className="w-6 h-6" />,
     },
     {
-      title: "Medical Provider Access",
-      summary: "Direct access to your dedicated physician.",
-      description: "Get consultations, dosage adjustments, and support throughout your journey. Your provider monitors your progress and adjusts your protocol based on your individual response and health markers.",
+      title: "Ongoing Provider Care",
+      summary: "Direct access to your dedicated medical provider.",
+      description: "Direct access to your dedicated medical provider for virtual consultations, progress tracking, and any dosage adjustments needed to optimize your results safely.",
+      icon: <Users className="w-6 h-6" />,
     },
     {
-      title: "Laboratory Testing",
-      summary: "Biannual comprehensive metabolic lab work.",
-      description: "Track your metabolic health markers and ensure safe, effective progress. We monitor key indicators including hormones, blood sugar, lipids, and inflammatory markers to optimize your results.",
+      title: "Comprehensive Lab Testing",
+      summary: "In-depth metabolic lab work before you start and every 6 months.",
+      description: "Your plan includes in-depth metabolic lab work before you start and every 6 months after. This data allows your provider to monitor your health and tailor your treatment.",
+      icon: <TestTube className="w-6 h-6" />,
     },
     {
-      title: "Complete Care Package",
-      summary: "Everything included in one seamless program.",
-      description: "Medication, supplies, syringes, alcohol pads, educational materials, and ongoing support. No hidden fees or surprise costs - your transformation journey is fully supported from day one.",
+      title: "Complete Supply & Support Kit",
+      summary: "All necessary supplies and wellness coaching delivered monthly.",
+      description: "Receive your monthly medication, all necessary syringes and alcohol pads, plus access to our nutrition/wellness coaching platform—all delivered discreetly to your door.",
+      icon: <Package className="w-6 h-6" />,
     },
   ];
 
@@ -41,19 +46,23 @@ export default function WhatsIncludedSection() {
       <div className="max-w-7xl mx-auto">
         <div className="mb-12 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-light tracking-tight text-gray-900 mb-3 sm:mb-4" style={{ fontFamily: "Nouvelle Grotesk" }}>
-            Your Scientific Transformation Toolkit
+            Your All-Inclusive Transformation Program
           </h2>
           <p className="text-base sm:text-lg text-gray-700 leading-relaxed max-w-3xl mb-6 sm:mb-8">
-            Everything you need for a complete metabolic transformation. Our comprehensive program combines cutting-edge medication with continuous medical oversight, ensuring your journey is safe, effective, and sustainable.
+            We provide everything you need for a complete metabolic transformation in one simple, transparent plan. Your journey is fully supported from day one with no hidden fees or surprise costs.
           </p>
           <Button variant="default" className="w-full sm:w-auto">
-            Start Your Transformation
+            Get Started Today
           </Button>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
-          {/* Left - Video */}
-          <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] rounded-xl sm:rounded-2xl overflow-hidden order-2 lg:order-1">
+        <h3 className="text-xl sm:text-2xl font-light text-gray-900 mb-8" style={{ fontFamily: "Nouvelle Grotesk" }}>
+          Included in Your Plan:
+        </h3>
+
+        {/* Bento Box Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="md:col-span-2 relative rounded-3xl overflow-hidden">
             <video
               autoPlay
               muted
@@ -63,33 +72,60 @@ export default function WhatsIncludedSection() {
             >
               <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_V5Py85fOiXtkX4lFFgwlrWk5jRcA/fjbjMTCU7xCthObZs2V28S/public/videos/Vial%20Rotating.mp4" type="video/mp4" />
             </video>
-          </div>
-
-          {/* Right - Content */}
-          <div className="h-auto lg:h-[600px] space-y-3 sm:space-y-4 flex flex-col order-1 lg:order-2">
-            {features.map((feature, index) => (
-              <div 
-                key={feature.title} 
-                className="rounded-xl sm:rounded-2xl p-4 sm:p-5 flex-1" 
-                style={{ backgroundColor: '#f1f0ed' }}
-              >
-                <h3 className="text-base sm:text-lg font-medium mb-2" style={{ fontFamily: "Nouvelle Grotesk", color: '#67645e' }}>
-                  {feature.title}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+            <div className="relative z-10 p-8 h-full flex items-end">
+              <div>
+                <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-4">
+                  {features[0].icon}
+                </div>
+                <h3 className="text-3xl font-light mb-4 text-white" style={{ fontFamily: "Nouvelle Grotesk" }}>
+                  {features[0].title}
                 </h3>
-                
-                <p className="text-sm mb-2 leading-relaxed" style={{ color: '#67645e' }}>
-                  {expandedItems[feature.title] ? feature.description : feature.summary}
-                </p>
-                
-                <button
-                  onClick={() => toggleExpanded(feature.title)}
-                  className="text-xs font-light hover:opacity-70 transition-opacity"
-                  style={{ fontFamily: "Nouvelle Grotesk", color: '#67645e' }}
-                >
-                  {expandedItems[feature.title] ? 'Show less ↑' : 'Show more ↓'}
-                </button>
+                <p className="text-white/90 text-lg leading-relaxed">{features[0].description}</p>
               </div>
-            ))}
+            </div>
+          </div>
+          
+          <div className="bg-black text-white rounded-3xl p-8 flex flex-col justify-between">
+            <div>
+              <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-4">
+                <span className="text-white">{features[1].icon}</span>
+              </div>
+              <h3 className="text-xl font-light mb-3" style={{ fontFamily: "Nouvelle Grotesk" }}>
+                {features[1].title}
+              </h3>
+            </div>
+            <p className="text-gray-300 text-sm">{features[1].summary}</p>
+          </div>
+          
+          <div className="relative rounded-3xl overflow-hidden">
+            <img 
+              src="/u7488359357_product_photo_of_a_plain_medical_vial_for_GLP-1_w_1a39bc17-8f61-449b-be38-41204fd21630_1.png" 
+              alt="Laboratory Testing"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+            <div className="relative z-10 p-8 h-full flex items-end">
+              <div>
+                <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mb-4">
+                  {features[2].icon}
+                </div>
+                <h3 className="text-xl font-light mb-3 text-white" style={{ fontFamily: "Nouvelle Grotesk" }}>
+                  {features[2].title}
+                </h3>
+                <p className="text-white/80 text-sm">{features[2].summary}</p>
+              </div>
+            </div>
+          </div>
+          
+          <div className="md:col-span-2 bg-gradient-to-r from-[#f1f0ed] to-[#e8e7e4] rounded-3xl p-8">
+            <div className="w-16 h-16 bg-gray-900 rounded-2xl flex items-center justify-center mb-4">
+              <span className="text-white">{features[3].icon}</span>
+            </div>
+            <h3 className="text-2xl font-light mb-3 text-gray-900" style={{ fontFamily: "Nouvelle Grotesk" }}>
+              {features[3].title}
+            </h3>
+            <p className="text-gray-600">{features[3].description}</p>
           </div>
         </div>
       </div>
