@@ -10,6 +10,15 @@ export const colors = {
     muted: '#E6D874'
   },
   
+  // Deep Rose Gold Palette
+  deepRoseGold: {
+    light: '#F5D5CE',
+    medium: '#E9A89B',
+    dark: '#C47F6B',
+    deep: '#B8604D',
+    gradient: 'linear-gradient(to bottom right, #F5D5CE, #E9A89B, #C47F6B, #B8604D)'
+  },
+  
   // Neutrals
   white: '#FFFFFF',
   offWhite: '#F8F8F8',

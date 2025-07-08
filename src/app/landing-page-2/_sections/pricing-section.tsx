@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { colors } from '@/lib/colors';
 
 export default function PricingSection() {
   return (
@@ -32,7 +33,7 @@ export default function PricingSection() {
             <h2 className='text-3xl md:text-4xl font-light tracking-tight leading-[120%]'>
               Choose Your
               <br />
-              <span className='font-medium bg-gradient-to-r from-[#B8860B] via-[#FFD700] to-[#DAA520] bg-clip-text text-transparent'>
+              <span className='font-medium bg-clip-text text-transparent' style={{ backgroundImage: colors.deepRoseGold.gradient }}>
                 Transformation Plan
               </span>
             </h2>
@@ -130,7 +131,7 @@ export default function PricingSection() {
             </div>
             
             {/* Advanced Plan */}
-            <div className='bg-gradient-to-br from-[#B8860B] via-[#FFD700] to-[#DAA520] rounded-3xl shadow-2xl overflow-hidden transform hover:scale-105 transition-all'>
+            <div className='rounded-3xl shadow-2xl overflow-hidden transform hover:scale-105 transition-all' style={{ background: colors.deepRoseGold.gradient }}>
               <div className='bg-[#3D3D3D] p-5 text-white relative overflow-hidden'>
                 {/* Product Image */}
                 <div className='absolute -right-8 -top-8 w-40 h-40 opacity-30'>
@@ -160,7 +161,7 @@ export default function PricingSection() {
                   <h4 className='text-base font-bold text-[#3D3D3D] mb-3'>Everything Included:</h4>
                   <div className='grid gap-2'>
                     <div className='flex items-start gap-2'>
-                      <div className='w-5 h-5 bg-gradient-to-br from-[#B8860B] to-[#DAA520] rounded-full flex-shrink-0 flex items-center justify-center mt-0.5'>
+                      <div className='w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center mt-0.5' style={{ background: colors.deepRoseGold.gradient }}>
                         <span className='text-white text-xs font-bold'>✓</span>
                       </div>
                       <div>
@@ -170,7 +171,7 @@ export default function PricingSection() {
                     </div>
                     
                     <div className='flex items-start gap-2'>
-                      <div className='w-5 h-5 bg-gradient-to-br from-[#B8860B] to-[#DAA520] rounded-full flex-shrink-0 flex items-center justify-center mt-0.5'>
+                      <div className='w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center mt-0.5' style={{ background: colors.deepRoseGold.gradient }}>
                         <span className='text-white text-xs font-bold'>✓</span>
                       </div>
                       <div>
@@ -180,7 +181,7 @@ export default function PricingSection() {
                     </div>
                     
                     <div className='flex items-start gap-2'>
-                      <div className='w-5 h-5 bg-gradient-to-br from-[#B8860B] to-[#DAA520] rounded-full flex-shrink-0 flex items-center justify-center mt-0.5'>
+                      <div className='w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center mt-0.5' style={{ background: colors.deepRoseGold.gradient }}>
                         <span className='text-white text-xs font-bold'>✓</span>
                       </div>
                       <div>
@@ -190,7 +191,7 @@ export default function PricingSection() {
                     </div>
                     
                     <div className='flex items-start gap-2'>
-                      <div className='w-5 h-5 bg-gradient-to-br from-[#B8860B] to-[#DAA520] rounded-full flex-shrink-0 flex items-center justify-center mt-0.5'>
+                      <div className='w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center mt-0.5' style={{ background: colors.deepRoseGold.gradient }}>
                         <span className='text-white text-xs font-bold'>✓</span>
                       </div>
                       <div>
@@ -200,7 +201,7 @@ export default function PricingSection() {
                     </div>
                     
                     <div className='flex items-start gap-2'>
-                      <div className='w-5 h-5 bg-gradient-to-br from-[#B8860B] to-[#DAA520] rounded-full flex-shrink-0 flex items-center justify-center mt-0.5'>
+                      <div className='w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center mt-0.5' style={{ background: colors.deepRoseGold.gradient }}>
                         <span className='text-white text-xs font-bold'>✓</span>
                       </div>
                       <div>
