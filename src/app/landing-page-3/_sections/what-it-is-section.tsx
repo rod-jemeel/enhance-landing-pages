@@ -7,17 +7,17 @@ export default function WhatItIsSection() {
     {
       number: "01",
       title: "Provider-Prescribed GLP-1 Medication",
-      description: "Under physician oversight, you receive a personalized, compounded GLP-1 medication. This is real medicine that works with your body's hormones to reduce hunger, control cravings, and reset your metabolic baseline."
+      description: "Under the care of a physician, you'll receive a personalized GLP-1 medication. This is real medicine that works with your body's hormones to curb hunger and reset your metabolism."
     },
     {
       number: "02",
-      title: "Data-Driven & Personalized",
-      description: "Your journey is guided by data, not guesswork. Comprehensive lab work before you start and every 6 months ensures your plan is safe, effective, and tailored to your unique metabolic profile. Our providers use this data to fine-tune your treatment."
+      title: "Data-Driven and Personalized",
+      description: "Your treatment is guided by science, not guesswork. We use comprehensive lab work at the start and every 6 months to ensure your plan is safe, effective, and perfectly tuned to your body's needs."
     },
     {
       number: "03",
       title: "Concierge Telehealth Experience",
-      description: "Our program is designed for your life. From the initial online consultation to medication delivered directly to your door, we've removed the friction. Get ongoing provider care and nutrition coaching, all from the comfort of your home."
+      description: "Our program is designed for your life. From your first online visit to medication delivered to your door, we provide a seamless experience with ongoing provider care, all from the comfort of your home."
     }
   ];
 
@@ -33,13 +33,13 @@ export default function WhatItIsSection() {
             {/* Header - Sticky on desktop */}
             <div className="lg:col-span-1 lg:sticky lg:top-24 lg:h-fit">
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-gray-900 mb-6" style={{ fontFamily: "Nouvelle Grotesk" }}>
-                A Smarter Approach to<br />Weight Loss
+                A Smarter Approach to Weight Loss
               </h2>
               <p className="text-xl md:text-2xl text-gray-900 font-light mb-4" style={{ fontFamily: "Nouvelle Grotesk" }}>
                 This is weight management, reimagined.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed mb-8" style={{ fontFamily: "Nouvelle Grotesk" }}>
-                — Our program uses proven medical science to go beyond conventional diets, addressing the biological factors of weight loss for lasting results.
+                — Our program uses proven medical science to address the biological drivers of weight, delivering results that last. Forget the guesswork and frustration of traditional diets.
               </p>
               <button 
                 className="text-lg font-medium text-gray-900 hover:text-gray-600 transition-colors inline-flex items-center gap-2"
