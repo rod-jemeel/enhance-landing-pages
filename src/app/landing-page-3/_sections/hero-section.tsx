@@ -367,25 +367,10 @@ export default function HeroSection() {
               currentLayout.isOffset ? 'text-4xl sm:text-5xl md:text-6xl lg:text-7xl' :
               'text-3xl sm:text-4xl md:text-5xl lg:text-6xl'
             }`} style={{ fontFamily: "Nouvelle Grotesk" }}>
-              {currentLayout.isMinimal ? (
-                <>Your Path to Lasting Weight Loss</>
-              ) : currentLayout.showMagazineStyle ? (
-                <>
-                  <span className="block text-sm uppercase tracking-widest mb-2 text-white/70">Medical Weight Loss</span>
-                  Your Path to<br />
-                  Lasting Weight Loss<br />
-                  With a Physician-Led<br />
-                  GLP-1 Program
-                </>
-              ) : (
-                <>
-                  Your Path to Lasting Weight Loss<br />
-                  With a Physician-Led GLP-1 Program
-                </>
-              )}
+              Your Path to Lasting Weight Loss Starts Here.
             </h1>
             <div className="mb-6 sm:mb-8">
-              <p className="text-base sm:text-lg text-white mb-3 sm:mb-4">Join thousands achieving life-changing results with our simple, provider-led plan.</p>
+              <p className="text-base sm:text-lg text-white mb-3 sm:mb-4">Join thousands who have achieved life-changing results with our simple, provider-led GLP-1 program.</p>
               <div className={`flex ${
                 currentLayout.className.includes('text-right') ? 'justify-center sm:justify-end' : 
                 currentLayout.className.includes('text-left') ? 'justify-center sm:justify-start' : 
