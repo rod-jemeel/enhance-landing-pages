@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "motion/react";
 import { ChevronLeft, ChevronRight, Check } from "lucide-react";
 
 const products = [

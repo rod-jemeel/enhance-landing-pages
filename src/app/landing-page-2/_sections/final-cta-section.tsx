@@ -1,10 +1,11 @@
 'use client';
 
 import Image from 'next/image';
+import { colors } from '@/lib/colors';
 
 export default function FinalCTASection() {
   return (
-    <section className='bg-gradient-to-br from-[#B8860B] via-[#FFD700] to-[#DAA520] text-white h-screen flex items-center sticky top-0 rounded-tr-[3rem] rounded-tl-[3rem] overflow-hidden z-60 relative'>
+    <section className='text-white h-screen flex items-center sticky top-0 rounded-tr-[3rem] rounded-tl-[3rem] overflow-hidden z-60 relative' style={{ background: colors.deepRoseGold.gradient }}>
       {/* Texture overlay */}
       <div className='absolute inset-0'>
         <div className='absolute inset-0 bg-black/10'></div>
@@ -87,7 +88,7 @@ export default function FinalCTASection() {
                 <div className='bg-gradient-to-br from-white to-[#F5F0EC] rounded-2xl p-4 text-[#3D3D3D] border-2 border-white'>
                   <div className='flex items-center gap-2 mb-1'>
                     <h4 className='font-semibold text-base'>Advanced GLP-1 + GIP</h4>
-                    <span className='bg-[#FFD700] text-[#3D3D3D] text-xs font-bold px-2 py-0.5 rounded-full'>POPULAR</span>
+                    <span className='text-white text-xs font-bold px-2 py-0.5 rounded-full' style={{ backgroundColor: colors.deepRoseGold.dark }}>POPULAR</span>
                   </div>
                   <p className='text-2xl font-bold mb-1'>$323/mo</p>
                   <p className='text-xs text-[#6B6B6B] line-through'>Regular $423/mo</p>

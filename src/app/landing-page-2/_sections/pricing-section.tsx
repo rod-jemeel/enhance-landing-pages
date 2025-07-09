@@ -1,233 +1,129 @@
-'use client';
+"use client"
 
-import Image from 'next/image';
+import { useState } from "react"
+import { Button } from "@/components/ui/custom-button"
+import { cn } from "@/lib/utils"
+import { Check } from 'lucide-react'
 
 export default function PricingSection() {
+  const [selectedProduct, setSelectedProduct] = useState<'standard' | 'advanced'>('advanced')
+
+  const products = {
+    standard: {
+      name: 'Standard GLP-1℞',
+      price: 212,
+      features: [
+        '4 Weeks of GLP-1 Medication',
+        'Provider Consultations',
+        'Basic Metabolic Testing',
+        'Injection Supplies',
+        'Digital Platform Access',
+        'Email Support',
+      ],
+    },
+    advanced: {
+      name: 'Advanced GLP-1 + GIP℞',
+      price: 323,
+      features: [
+        '4 Weeks of Dual Medication',
+        'Ongoing Provider Care & Support',
+        'Metabolic Laboratory Testing Every 6 Months',
+        'Syringes & Alcohol Pads Kit',
+        'Nutrition & Wellness Coaching',
+        'Platform Access & Educational Content',
+      ],
+    },
+  }
+
+  const currentProduct = products[selectedProduct]
+
   return (
-    <section className='bg-gradient-to-br from-[#FFFFFF] via-[#F5F0EC] to-[#EAEAEA] text-[#3D3D3D] flex items-center justify-center h-screen sticky top-0 rounded-tr-[3rem] rounded-tl-[3rem] overflow-hidden z-40 relative'>
-      {/* Luxury background */}
-      <div className='absolute inset-0'>
-        <Image
-          src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1920&auto=format&fit=crop'
-          alt='Abstract luxury'
-          fill
-          className='object-cover opacity-10'
-        />
-      </div>
-      
-      {/* Floating elements */}
-      <div className='absolute top-20 left-20'>
-        <Image
-          src='https://images.unsplash.com/photo-1629904853893-c2c8981a1dc5?w=800&auto=format&fit=crop'
-          alt='Gold texture'
-          width={300}
-          height={300}
-          className='opacity-20 rounded-full blur-sm'
-        />
-      </div>
-      
-      <div className='relative z-10 w-full max-w-6xl mx-auto px-8 py-6'>
-        <div className='text-center space-y-4'>
-          <div>
-            <h2 className='text-3xl md:text-4xl font-light tracking-tight leading-[120%]'>
-              Choose Your
-              <br />
-              <span className='font-medium bg-gradient-to-r from-[#B8860B] via-[#FFD700] to-[#DAA520] bg-clip-text text-transparent'>
-                Transformation Plan
-              </span>
+    <section className="py-16 sm:py-24 md:py-32 px-6 sm:px-8 md:px-16 lg:px-20 bg-white">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="grid md:grid-cols-2 gap-6 sm:gap-8 items-start mb-12 sm:mb-20 md:mb-24">
+          <div className="space-y-3 sm:space-y-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-gray-900" style={{ fontFamily: "Nouvelle Grotesk" }}>
+              Comprehensive Care for a Healthier Future
             </h2>
-            <p className='text-base text-[#6B6B6B] mt-2 max-w-3xl mx-auto'>
-              Two powerful options, both with transparent pricing and comprehensive care.
+            <p className="text-base sm:text-lg text-gray-700 leading-relaxed max-w-2xl">
+              We believe in all-inclusive care. Your plan includes everything you need for a successful transformation, with one consistent price from your first dose to your last. This is medical weight loss, simplified.
             </p>
           </div>
-          
-          <div className='grid lg:grid-cols-2 gap-6 max-w-5xl mx-auto'>
-            {/* Standard Plan */}
-            <div className='bg-white rounded-3xl shadow-xl overflow-hidden transform hover:scale-105 transition-all'>
-              <div className='bg-[#F5F0EC] p-5 relative overflow-hidden'>
-                {/* Product Image */}
-                <div className='absolute -right-8 -top-8 w-40 h-40 opacity-30'>
-                  <Image
-                    src='/images/bottle-2.webp'
-                    alt='Standard Formula'
-                    width={160}
-                    height={160}
-                    className='object-contain rotate-12'
-                  />
-                </div>
-                <div className='flex items-center justify-center gap-3 mb-3'>
-                  <span className='text-sm font-medium uppercase tracking-wider text-[#6B6B6B]'>Standard</span>
-                </div>
-                <h3 className='text-xl font-bold mb-2 text-[#3D3D3D]'>GLP-1℞</h3>
-                <p className='text-[#6B6B6B] text-sm'>All doses</p>
-                <div className='mt-6'>
-                  <p className='text-base text-[#6B6B6B]'>starting at</p>
-                  <p className='text-4xl font-bold text-[#3D3D3D]'>$212</p>
-                  <p className='text-lg text-[#6B6B6B]'>/mo*</p>
-                </div>
-              </div>
-              
-              <div className='bg-white p-5'>
-                <div className='space-y-3 mb-5'>
-                  <h4 className='text-base font-bold text-[#3D3D3D] mb-3'>Everything Included:</h4>
-                  <div className='grid gap-2'>
-                    <div className='flex items-start gap-2'>
-                      <div className='w-5 h-5 bg-[#3D3D3D] rounded-full flex-shrink-0 flex items-center justify-center mt-0.5'>
-                        <span className='text-white text-xs font-bold'>✓</span>
-                      </div>
-                      <div>
-                        <p className='font-semibold text-sm'>4 Weeks of Medication</p>
-                        <p className='text-xs text-[#6B6B6B]'>GLP-1 compounded medication</p>
-                      </div>
-                    </div>
-                    
-                    <div className='flex items-start gap-2'>
-                      <div className='w-5 h-5 bg-[#3D3D3D] rounded-full flex-shrink-0 flex items-center justify-center mt-0.5'>
-                        <span className='text-white text-xs font-bold'>✓</span>
-                      </div>
-                      <div>
-                        <p className='font-semibold text-sm'>Provider Care & Support</p>
-                        <p className='text-xs text-[#6B6B6B]'>Personalized medical guidance</p>
-                      </div>
-                    </div>
-                    
-                    <div className='flex items-start gap-2'>
-                      <div className='w-5 h-5 bg-[#3D3D3D] rounded-full flex-shrink-0 flex items-center justify-center mt-0.5'>
-                        <span className='text-white text-xs font-bold'>✓</span>
-                      </div>
-                      <div>
-                        <p className='font-semibold text-sm'>Lab Testing</p>
-                        <p className='text-xs text-[#6B6B6B]'>Every 6 months</p>
-                      </div>
-                    </div>
-                    
-                    <div className='flex items-start gap-2'>
-                      <div className='w-5 h-5 bg-[#3D3D3D] rounded-full flex-shrink-0 flex items-center justify-center mt-0.5'>
-                        <span className='text-white text-xs font-bold'>✓</span>
-                      </div>
-                      <div>
-                        <p className='font-semibold text-sm'>Supply Kit</p>
-                        <p className='text-xs text-[#6B6B6B]'>Syringes & alcohol pads</p>
-                      </div>
-                    </div>
-                    
-                    <div className='flex items-start gap-2'>
-                      <div className='w-5 h-5 bg-[#3D3D3D] rounded-full flex-shrink-0 flex items-center justify-center mt-0.5'>
-                        <span className='text-white text-xs font-bold'>✓</span>
-                      </div>
-                      <div>
-                        <p className='font-semibold text-sm'>Wellness Coaching</p>
-                        <p className='text-xs text-[#6B6B6B]'>Nutrition guidance</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                <button className='w-full bg-[#3D3D3D] hover:bg-[#2D2D2D] text-white font-bold py-3 px-6 rounded-full text-base transition-all'>
-                  Start Standard Program
-                </button>
-              </div>
+          <div className="flex items-center justify-start sm:justify-end mt-4 sm:mt-0">
+            <Button variant="default" className="w-full sm:w-auto">
+              See Pricing Details
+            </Button>
+          </div>
+        </div>
+
+        {/* Product Tabs */}
+        <div className="flex justify-center mb-12">
+          <div className="inline-flex p-1 bg-gray-100 rounded-full">
+            <button
+              onClick={() => setSelectedProduct('standard')}
+              className={cn(
+                "px-6 py-2 rounded-full text-sm font-medium transition-all",
+                selectedProduct === 'standard'
+                  ? "bg-white text-black shadow-sm"
+                  : "text-gray-600 hover:text-gray-900"
+              )}
+            >
+              Standard GLP-1
+            </button>
+            <button
+              onClick={() => setSelectedProduct('advanced')}
+              className={cn(
+                "px-6 py-2 rounded-full text-sm font-medium transition-all",
+                selectedProduct === 'advanced'
+                  ? "bg-white text-black shadow-sm"
+                  : "text-gray-600 hover:text-gray-900"
+              )}
+            >
+              Advanced GLP-1 + GIP
+            </button>
+          </div>
+        </div>
+
+        {/* Split View Layout */}
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h3 className="text-5xl font-light mb-4 text-gray-900" style={{ fontFamily: "Nouvelle Grotesk" }}>{currentProduct.name}</h3>
+            <p className="text-lg text-gray-600 mb-8">Premium medical care that delivers real results. No gimmicks, no shortcuts.</p>
+            <div className="mb-8">
+              <span className="text-6xl font-light text-gray-900">${currentProduct.price}</span>
+              <span className="text-2xl text-gray-600">/month</span>
             </div>
-            
-            {/* Advanced Plan */}
-            <div className='bg-gradient-to-br from-[#B8860B] via-[#FFD700] to-[#DAA520] rounded-3xl shadow-2xl overflow-hidden transform hover:scale-105 transition-all'>
-              <div className='bg-[#3D3D3D] p-5 text-white relative overflow-hidden'>
-                {/* Product Image */}
-                <div className='absolute -right-8 -top-8 w-40 h-40 opacity-30'>
-                  <Image
-                    src='/images/bottle-1.webp'
-                    alt='Advanced Formula'
-                    width={160}
-                    height={160}
-                    className='object-contain rotate-12'
-                  />
-                </div>
-                <div className='flex items-center justify-center gap-3 mb-3'>
-                  <span className='text-sm font-medium uppercase tracking-wider'>Advanced</span>
-                  <div className='bg-white rounded-full px-3 py-1 text-xs font-bold text-[#3D3D3D]'>PREMIUM</div>
-                </div>
-                <h3 className='text-xl font-bold mb-2'>GLP-1 + GIP℞</h3>
-                <p className='text-white text-sm'>All doses</p>
-                <div className='mt-6'>
-                  <p className='text-base text-white'>starting at</p>
-                  <p className='text-4xl font-bold'>$323</p>
-                  <p className='text-lg text-white'>/mo*</p>
-                </div>
-              </div>
-              
-              <div className='bg-white p-5'>
-                <div className='space-y-3 mb-5'>
-                  <h4 className='text-base font-bold text-[#3D3D3D] mb-3'>Everything Included:</h4>
-                  <div className='grid gap-2'>
-                    <div className='flex items-start gap-2'>
-                      <div className='w-5 h-5 bg-gradient-to-br from-[#B8860B] to-[#DAA520] rounded-full flex-shrink-0 flex items-center justify-center mt-0.5'>
-                        <span className='text-white text-xs font-bold'>✓</span>
-                      </div>
-                      <div>
-                        <p className='font-semibold text-sm'>4 Weeks of Medication</p>
-                        <p className='text-xs text-[#6B6B6B]'>GLP-1 + GIP dual-action formula</p>
-                      </div>
-                    </div>
-                    
-                    <div className='flex items-start gap-2'>
-                      <div className='w-5 h-5 bg-gradient-to-br from-[#B8860B] to-[#DAA520] rounded-full flex-shrink-0 flex items-center justify-center mt-0.5'>
-                        <span className='text-white text-xs font-bold'>✓</span>
-                      </div>
-                      <div>
-                        <p className='font-semibold text-sm'>Premium Provider Care</p>
-                        <p className='text-xs text-[#6B6B6B]'>Enhanced medical support</p>
-                      </div>
-                    </div>
-                    
-                    <div className='flex items-start gap-2'>
-                      <div className='w-5 h-5 bg-gradient-to-br from-[#B8860B] to-[#DAA520] rounded-full flex-shrink-0 flex items-center justify-center mt-0.5'>
-                        <span className='text-white text-xs font-bold'>✓</span>
-                      </div>
-                      <div>
-                        <p className='font-semibold text-sm'>Metabolic Lab Testing</p>
-                        <p className='text-xs text-[#6B6B6B]'>Comprehensive panels</p>
-                      </div>
-                    </div>
-                    
-                    <div className='flex items-start gap-2'>
-                      <div className='w-5 h-5 bg-gradient-to-br from-[#B8860B] to-[#DAA520] rounded-full flex-shrink-0 flex items-center justify-center mt-0.5'>
-                        <span className='text-white text-xs font-bold'>✓</span>
-                      </div>
-                      <div>
-                        <p className='font-semibold text-sm'>Premium Supply Kit</p>
-                        <p className='text-xs text-[#6B6B6B]'>Everything for administration</p>
-                      </div>
-                    </div>
-                    
-                    <div className='flex items-start gap-2'>
-                      <div className='w-5 h-5 bg-gradient-to-br from-[#B8860B] to-[#DAA520] rounded-full flex-shrink-0 flex items-center justify-center mt-0.5'>
-                        <span className='text-white text-xs font-bold'>✓</span>
-                      </div>
-                      <div>
-                        <p className='font-semibold text-sm'>VIP Wellness Coaching</p>
-                        <p className='text-xs text-[#6B6B6B]'>Priority support access</p>
-                      </div>
-                    </div>
+            <Button variant="default" className="mb-4">Start Your Journey</Button>
+            <p className="text-sm text-gray-500">12-month commitment • Prescription required</p>
+          </div>
+          <div className="relative">
+            <img 
+              src="/u7488359357_product_photo_of_a_plain_medical_vial_for_GLP-1_w_1a39bc17-8f61-449b-be38-41204fd21630_1.png" 
+              alt="GLP-1 Product"
+              className="w-full h-[400px] object-cover rounded-2xl"
+            />
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/60 to-transparent p-8 rounded-b-2xl">
+              <h4 className="text-white font-medium mb-4">Everything Included:</h4>
+              <div className="grid grid-cols-2 gap-x-4 gap-y-2">
+                {currentProduct.features.map((feature, i) => (
+                  <div key={i} className="flex items-start gap-2">
+                    <Check className="w-4 h-4 text-white mt-0.5 flex-shrink-0" />
+                    <span className="text-xs text-white/90">{feature}</span>
                   </div>
-                </div>
-                
-                <button className='w-full bg-[#3D3D3D] hover:bg-[#2D2D2D] text-white font-bold py-3 px-6 rounded-full text-base transition-all shadow-xl'>
-                  Start Advanced Program
-                </button>
+                ))}
               </div>
             </div>
           </div>
-          
-          <div className='mt-6 space-y-2 max-w-4xl mx-auto'>
-            <p className='text-xs text-[#6B6B6B] text-center'>
-              *Payable up front with a 12-month plan. Prescription products require an online consultation with a healthcare professional who will determine if a prescription is appropriate.
-            </p>
-            <p className='text-xs text-[#6B6B6B] text-center'>
-              This is a compounded medication and is not FDA-approved. Its safety or effectiveness has not been verified by the FDA.
-            </p>
-          </div>
+        </div>
+
+        {/* Footer notes */}
+        <div className="mt-12 text-center">
+          <p className="text-sm text-gray-500">
+            *Payable up front with a 12-month plan. Prescription products require an online consultation.
+          </p>
         </div>
       </div>
     </section>
-  );
+  )
 }
