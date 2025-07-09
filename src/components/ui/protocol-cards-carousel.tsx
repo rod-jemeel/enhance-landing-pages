@@ -14,9 +14,9 @@ import { AnimatePresence, motion } from "motion/react";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 
 interface CarouselProps {
-  items: JSX.Element[];
+  items: React.ReactElement[];
   initialScroll?: number;
-  carouselRef?: React.RefObject<HTMLDivElement>;
+  carouselRef?: React.RefObject<HTMLDivElement | null>;
   onScrollChange?: (canScrollLeft: boolean, canScrollRight: boolean) => void;
 }
 
@@ -89,14 +89,9 @@ export const ProtocolCarousel = ({ items, initialScroll = 0, carouselRef: extern
     >
       <div className="relative w-full">
         <div
-          className="flex w-full overflow-x-scroll overscroll-x-auto scroll-smooth py-10 md:py-16"
+          className="flex w-full overflow-x-scroll overscroll-x-auto scroll-smooth py-10 md:py-16 hide-scrollbar"
           ref={ref}
           onScroll={checkScrollability}
-          style={{ 
-            msOverflowStyle: 'none',
-            scrollbarWidth: 'none',
-            WebkitScrollbar: { display: 'none' }
-          }}
         >
           <div
             className={cn(
