@@ -26,7 +26,7 @@ export default function Navbar() {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-md' : 'bg-transparent'
+      isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-md' : 'bg-white/10 backdrop-blur-sm'
     }`}>
       <div className="max-w-[1400px] mx-auto px-6">
         <div className="flex items-center justify-between h-16">
@@ -34,12 +34,12 @@ export default function Navbar() {
           <Link href="/" className="flex items-center group">
             <div className="flex items-baseline gap-1">
               <span className={`text-2xl font-bold tracking-tight transition-colors duration-300 ${
-                isScrolled ? 'text-[var(--text-primary)]' : 'text-white'
+                isScrolled ? 'text-[var(--text-primary)]' : 'text-black'
               } group-hover:text-[var(--rose-gold)]`}>
                 Enhance
               </span>
               <span className={`text-2xl font-light transition-colors duration-300 ${
-                isScrolled ? 'text-[var(--rose-gold)]' : 'text-white'
+                isScrolled ? 'text-[var(--rose-gold)]' : 'text-black'
               }`}>
                 .MD
               </span>
@@ -53,7 +53,7 @@ export default function Navbar() {
                 key={link.label}
                 href={link.href}
                 className={`text-[14px] font-medium transition-colors ${
-                  isScrolled ? 'text-[var(--text-secondary)] hover:text-[var(--rose-gold)]' : 'text-white hover:text-white/80'
+                  isScrolled ? 'text-[var(--text-secondary)] hover:text-[var(--rose-gold)]' : 'text-black hover:text-black/70'
                 }`}
               >
                 {link.label}
@@ -66,7 +66,7 @@ export default function Navbar() {
             <Link
               href="/consultation"
               className={`text-[14px] font-medium transition-colors ${
-                isScrolled ? 'text-[var(--text-secondary)] hover:text-[var(--rose-gold)]' : 'text-white hover:text-white/80'
+                isScrolled ? 'text-[var(--text-secondary)] hover:text-[var(--rose-gold)]' : 'text-black hover:text-black/70'
               }`}
             >
               Book Consultation
@@ -89,17 +89,17 @@ export default function Navbar() {
             aria-label="Toggle menu"
           >
             <span className={`block w-6 h-0.5 transition-all duration-300 ${
-              isScrolled ? 'bg-[var(--text-primary)]' : 'bg-white'
+              isScrolled ? 'bg-[var(--text-primary)]' : 'bg-black'
             } ${
               isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''
             }`} />
             <span className={`block w-6 h-0.5 transition-all duration-300 ${
-              isScrolled ? 'bg-[var(--text-primary)]' : 'bg-white'
+              isScrolled ? 'bg-[var(--text-primary)]' : 'bg-black'
             } ${
               isMobileMenuOpen ? 'opacity-0' : ''
             }`} />
             <span className={`block w-6 h-0.5 transition-all duration-300 ${
-              isScrolled ? 'bg-[var(--text-primary)]' : 'bg-white'
+              isScrolled ? 'bg-[var(--text-primary)]' : 'bg-black'
             } ${
               isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''
             }`} />
