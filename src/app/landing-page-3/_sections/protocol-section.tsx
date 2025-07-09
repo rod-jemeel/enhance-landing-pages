@@ -4,12 +4,13 @@ import React from "react"
 import { motion } from "motion/react"
 
 export default function ProtocolSection() {
+  // Merged: New conversion-focused copy + original styling props
   const phases = [
     {
       number: "01",
-      title: "Phase 01: Metabolic Analysis",
+      title: "Step 01: Decode Your Metabolism",
       description:
-        "Your journey begins with a detailed online intake and comprehensive lab work at a nearby facility. This essential data gives your provider a complete picture of your unique metabolic health, forming the foundation for a safe and personalized treatment plan.",
+        "We start with comprehensive lab work and a detailed health intake. This gives your provider the precise data needed to understand your unique biology and craft a treatment plan that’s perfectly tailored to you.",
       bgColor: "bg-gradient-to-br from-amber-50 to-orange-50",
       borderColor: "border-amber-200",
       textColor: "text-amber-900",
@@ -19,9 +20,9 @@ export default function ProtocolSection() {
     },
     {
       number: "02",
-      title: "Phase 02: Personalized Protocol Design",
+      title: "Step 02: Craft Your Personalized Plan",
       description:
-        "You'll connect one-on-one with your dedicated provider via a private telehealth consultation. They will review your lab results, discuss your goals, and design your personalized GLP-1 medication protocol, including the precise dosage to ensure the best start.",
+        "In a private telehealth visit, you'll meet your provider to review your lab results and set your goals. Together, you will design a custom GLP-1 protocol with the precise dosage to maximize your success.",
       bgColor: "bg-gradient-to-br from-stone-50 to-zinc-50",
       borderColor: "border-stone-200",
       textColor: "text-stone-900",
@@ -31,9 +32,9 @@ export default function ProtocolSection() {
     },
     {
       number: "03",
-      title: "Phase 03: Treatment & Transformation",
+      title: "Step 03: Begin Your Transformation",
       description:
-        "Once prescribed, your medication is shipped discreetly to your doorstep. As you begin your protocol, the GLP-1 medication starts working with your body's natural hormones to reduce hunger, manage cravings, and reset your metabolic pathways for effective weight loss.",
+        "Your medication is delivered discreetly to your door. From the first dose, your protocol works with your body’s hormones to reduce hunger, eliminate cravings, and reset your metabolism for powerful, sustainable weight loss.",
       bgColor: "bg-gradient-to-br from-neutral-50 to-slate-50",
       borderColor: "border-neutral-200",
       textColor: "text-neutral-900",
@@ -43,9 +44,9 @@ export default function ProtocolSection() {
     },
     {
       number: "04",
-      title: "Phase 04: Ongoing Optimization & Support",
+      title: "Step 04: Optimize for Long-Term Success",
       description:
-        "Your transformation is supported by continuous care. With ongoing provider check-ins, follow-up lab work every 6 months, and access to wellness coaching, we monitor your progress and fine-tune your plan. This data-driven approach ensures you achieve and sustain your long-term health goals.",
+        "Your journey is supported by continuous care. With regular provider check-ins and follow-up labs, we fine-tune your plan to ensure you not only reach your goals, but maintain them for life.",
       bgColor: "bg-gradient-to-br from-gray-50 to-cool-gray-50",
       borderColor: "border-gray-200",
       textColor: "text-gray-900",
@@ -60,10 +61,10 @@ export default function ProtocolSection() {
       <div className="w-full">
         <div className="px-6 sm:px-8 md:px-16 lg:px-20 mb-8 sm:mb-12">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal text-gray-100 mb-4">
-            The 4-Step Path to Your Transformation
+            Your 4-Step Path to Lasting Results
           </h2>
           <p className="text-base sm:text-lg text-gray-400 max-w-3xl">
-            Our simple, provider-led process is designed for clarity, safety, and lasting results.
+            Our physician-led protocol is built on science, ensuring your journey is safe, personalized, and effective from day one.
           </p>
         </div>
         <div className="px-6 sm:px-8 md:px-16 lg:px-20">
@@ -77,7 +78,7 @@ export default function ProtocolSection() {
             >
               <div className="flex-1">
                 <div className="inline-block px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm mb-4">
-                  <span className="text-white font-bold">Phase {phase.number}</span>
+                  <span className="text-white font-bold">Step {phase.number}</span>
                 </div>
                 <h3 className="text-3xl font-semibold text-white mb-4">{phase.title}</h3>
                 <p className="text-gray-300 leading-relaxed mb-6">{phase.description}</p>
@@ -87,7 +88,7 @@ export default function ProtocolSection() {
               </div>
               <div className="flex-1 relative">
                 <div className="aspect-video rounded-2xl overflow-hidden">
-                  <img src={phase.image} alt="" className="w-full h-full object-cover" />
+                  <img src={phase.image} alt={`${phase.title} illustration`} className="w-full h-full object-cover" />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl"></div>
               </div>
