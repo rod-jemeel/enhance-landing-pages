@@ -21,15 +21,15 @@ export default function TransformationQuoteSection() {
       <div className="relative h-full flex items-center justify-center px-6 sm:px-8 md:px-16 lg:px-20">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight text-white" style={{ fontFamily: "Nouvelle Grotesk" }}>
-            Your Body Isn't Broken. It's Ready for a Breakthrough.
+            Stop Fighting Your Body. It's Time for a Breakthrough.
           </h2>
           
           <p className="text-lg sm:text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-            For too long, weight loss has been a battle of willpower. We believe it's a matter of science. Our provider-led program gives you the medical tools to work with your biology, not against it.
+            The endless cycle of dieting fails because it ignores the science. Our physician-led program finally addresses the root cause—your biology—giving you the medical tools to achieve results that last.
           </p>
           
           <p className="text-base sm:text-lg md:text-xl text-white/80 italic">
-            — The future of weight loss isn't more struggle. It's smarter science.
+            — This isn't about trying harder. It's about treating smarter.
           </p>
           
           <div className="pt-4">
