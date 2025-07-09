@@ -81,10 +81,10 @@ export default function CTASection() {
             fontFamily: "Nouvelle Grotesk",
           }}
         >
-          Your Transformation is Waiting.
+          The Wait Is Over. Your Transformation Starts Now.
         </h2>
         <p className="mx-auto max-w-2xl text-base sm:text-lg leading-relaxed text-gray-600">
-          You've seen the science and the results. Now, take the definitive step. Start your secure evaluation to connect with a provider and see if you qualify for our physician-led GLP-1 program.
+          You've seen the science and the real-world results. The only thing left is to take the first step. Start your free, confidential evaluation to connect with a provider and discover if our program is right for you.
         </p>
         <div className="pt-2 sm:pt-4">
           <Button variant="circle-arrow" className="w-full sm:w-auto">
