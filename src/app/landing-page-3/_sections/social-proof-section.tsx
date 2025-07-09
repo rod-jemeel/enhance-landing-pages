@@ -4,60 +4,61 @@ import { Button } from "@/components/ui/custom-button";
 import { TestimonialsColumn } from "@/components/ui/testimonials-columns-1";
 import { motion } from "motion/react";
 
+// Updated testimonials for more impact and relatability
 const testimonials = [
   {
-    text: "Lost 42 pounds in 4 months. The medical supervision made all the difference. This program changed my life.",
+    text: "42 lbs gone in 4 months. The medical guidance was a game-changer. I feel like myself again.",
     image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200&h=200&fit=crop",
-    name: "Sarah Mitchell",
-    role: "Transformed Member",
+    name: "Sarah M.",
+    role: "42 lb Transformation",
   },
   {
-    text: "As a physician myself, I was impressed by the comprehensive approach. Down 38 pounds and feeling great.",
+    text: "As a physician, I was blown away by the data-driven approach. I'm down 38 lbs and my energy is back.",
     image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=200&h=200&fit=crop",
-    name: "Dr. Michael Chen",
-    role: "Medical Professional",
+    name: "Dr. Michael C.",
+    role: "Physician & Member",
   },
   {
-    text: "My A1C dropped from 8.2 to 5.6. The medication and physician guidance helped me reverse my prediabetes.",
+    text: "My A1C plummeted from 8.2 to 5.6, reversing my prediabetes. This program gave me my health back.",
     image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?q=80&w=200&h=200&fit=crop",
-    name: "Jennifer Rodriguez",
-    role: "Health Success Story",
+    name: "Jennifer R.",
+    role: "Prediabetes Reversed",
   },
   {
-    text: "60 pounds down and maintaining for 8 months. The direct physician access made me feel safe throughout.",
+    text: "I lost 60 lbs and have kept it off for 8 months. The continuous provider support made me feel safe and confident.",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&h=200&fit=crop",
-    name: "Robert Thompson",
-    role: "Long-term Success",
+    name: "Robert T.",
+    role: "Sustainable Success",
   },
   {
-    text: "The convenience of home delivery and telehealth fits my busy schedule. Down 35 pounds and feeling incredible.",
+    text: "As a busy professional, the convenience is unmatched. 35 lbs down without the stress. I feel incredible.",
     image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&h=200&fit=crop",
-    name: "Amanda Foster",
+    name: "Amanda F.",
     role: "Busy Professional",
   },
   {
-    text: "After years of yo-yo dieting, I finally found a solution. 52 pounds gone and my energy is through the roof.",
+    text: "After years of yo-yo dieting, this was the answer. I've lost 52 lbs and my energy is limitless.",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&h=200&fit=crop",
-    name: "Marcus Johnson",
-    role: "Energy Transformed",
+    name: "Marcus J.",
+    role: "Yo-Yo Dieting Ended",
   },
   {
-    text: "The lab work showed exactly what my body needed. My metabolic health has completely transformed.",
+    text: "The lab work pinpointed exactly what my body needed. My metabolic health has completely turned around.",
     image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?q=80&w=200&h=200&fit=crop",
-    name: "Dr. Patricia Lee",
-    role: "Metabolic Success",
+    name: "Dr. Patricia L.",
+    role: "Metabolic Health Restored",
   },
   {
-    text: "As a busy executive, this program fit my lifestyle perfectly. 44 pounds down and reclaimed my life.",
+    text: "This program fit seamlessly into my life as a busy executive. I'm down 44 lbs and have reclaimed my health.",
     image: "https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=200&h=200&fit=crop",
-    name: "David Chen",
-    role: "Executive Member",
+    name: "David C.",
+    role: "Executive Transformation",
   },
   {
-    text: "The science-based approach sold me. Blood pressure normalized, lost 56 pounds. Real medicine, real results.",
+    text: "The science-first approach is what convinced me. My blood pressure is normal, I've lost 56 lbs. Real medicine, real results.",
     image: "https://images.unsplash.com/photo-1598257006458-087169a1f08d?q=80&w=200&h=200&fit=crop",
-    name: "Rebecca Martinez",
-    role: "Science Believer",
+    name: "Rebecca M.",
+    role: "Down 56 lbs",
   },
 ];
 
@@ -77,10 +78,10 @@ export default function SocialProofSection() {
       >
         <div className="max-w-3xl">
           <h2 className="text-2xl sm:text-3xl font-light tracking-tight text-gray-900 md:text-4xl mb-3 sm:mb-4" style={{ fontFamily: "Nouvelle Grotesk" }}>
-            Real People. Real Science. Real Results.
+            Real Stories from People Just Like You
           </h2>
           <p className="text-base sm:text-lg text-gray-600" style={{ fontFamily: "Nouvelle Grotesk" }}>
-            Join the thousands of members who have transformed their health with our provider-led GLP-1 program. This is proof that a comprehensive, physician-guided approach delivers sustainable, life-changing outcomes.
+            Thousands have already transformed their health with our physician-led GLP-1 program. See for yourself how our science-backed approach delivers life-changing, sustainable results.
           </p>
         </div>
         <Button variant="default" className="w-full sm:w-auto sm:ml-8">
