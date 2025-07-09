@@ -8,33 +8,34 @@ import { motion, AnimatePresence } from "motion/react";
 export default function WhatsIncludedSection() {
   const [activeFeature, setActiveFeature] = useState(0);
 
+  // Updated copy for better conversion and clarity
   const features = [
     {
-      title: "Provider-Prescribed GLP-1 Medication",
-      summary: "Powerful, compounded GLP-1 medication personalized to your needs.",
-      description: "Receive a powerful, compounded GLP-1 medication, personalized to your needs by your provider. Our medications are prepared by trusted, vetted pharmacies to ensure quality and efficacy.",
+      title: "Science-Backed GLP-1 Medication",
+      summary: "The right medicine at the right dose to curb hunger and reset your metabolism.",
+      description: "Your provider prescribes a powerful, compounded GLP-1 medication tailored to your unique biology. We partner exclusively with vetted, high-quality pharmacies to ensure your treatment is both safe and effective.",
       icon: <FlaskConical className="w-6 h-6" />,
       video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_V5Py85fOiXtkX4lFFgwlrWk5jRcA/fjbjMTCU7xCthObZs2V28S/public/videos/Vial%20Rotating.mp4",
       image: "/u7488359357_product_photo_of_a_plain_medical_vial_for_GLP-1_w_1a39bc17-8f61-449b-be38-41204fd21630_1.png"
     },
     {
-      title: "Ongoing Provider Care",
-      summary: "Direct access to your dedicated medical provider.",
-      description: "Direct access to your dedicated medical provider for virtual consultations, progress tracking, and any dosage adjustments needed to optimize your results safely.",
+      title: "Dedicated Medical Support",
+      summary: "Your personal provider is with you every step, guiding your journey and ensuring your safety.",
+      description: "You get direct, ongoing access to your medical provider. They'll handle virtual check-ins, track your progress, and make precise dosage adjustments to ensure your treatment is optimized for safe, effective, and lasting results.",
       icon: <Users className="w-6 h-6" />,
       image: "/Metabolic Data.png"
     },
     {
-      title: "Comprehensive Lab Testing",
-      summary: "In-depth metabolic lab work before you start and every 6 months.",
-      description: "Your plan includes in-depth metabolic lab work before you start and every 6 months after. This data allows your provider to monitor your health and tailor your treatment.",
+      title: "Data-Driven Health Tracking",
+      summary: "We go beyond guesswork with comprehensive lab work to track your progress and fine-tune your plan.",
+      description: "Your program is built on a foundation of science. We include comprehensive metabolic lab work before you begin and every 6 months thereafter. This critical data allows your provider to monitor your progress and precisely tailor your treatment for optimal health outcomes.",
       icon: <TestTube className="w-6 h-6" />,
       image: "/images/landing-page-2/protocol-1.5.png"
     },
     {
-      title: "Complete Supply & Support Kit",
-      summary: "All necessary supplies and wellness coaching delivered monthly.",
-      description: "Receive your monthly medication, all necessary syringes and alcohol pads, plus access to our nutrition/wellness coaching platform—all delivered discreetly to your door.",
+      title: "All-In-One Convenience",
+      summary: "Everything you need—medication, supplies, and coaching access—delivered discreetly to your door.",
+      description: "We make it easy. Each month, you'll receive a complete kit with your medication, all necessary supplies like syringes and alcohol pads, and full access to our nutrition and wellness coaching platform. It's all delivered discreetly to your doorstep.",
       icon: <Package className="w-6 h-6" />,
       image: "/images/landing-page-2/protocol-4.png"
     },
@@ -45,10 +46,10 @@ export default function WhatsIncludedSection() {
       <div className="max-w-7xl mx-auto">
         <div className="mb-12 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-light tracking-tight text-gray-900 mb-3 sm:mb-4" style={{ fontFamily: "Nouvelle Grotesk" }}>
-            Your All-Inclusive Transformation Program
+            Your Complete Toolkit for Lasting Weight Loss
           </h2>
           <p className="text-base sm:text-lg text-gray-700 leading-relaxed max-w-3xl mb-6 sm:mb-8">
-            We provide everything you need for a complete metabolic transformation in one simple, transparent plan. Your journey is fully supported from day one with no hidden fees or surprise costs.
+            Your plan includes every tool and all the support you need for a successful metabolic reset. We believe in total transparency—one simple price, no hidden fees, no surprises. Just results.
           </p>
           <Button variant="default" className="w-full sm:w-auto">
             Get Started Today
