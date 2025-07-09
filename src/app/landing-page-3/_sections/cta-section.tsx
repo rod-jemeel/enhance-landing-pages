@@ -1,98 +1,97 @@
-'use client';
-
-import { motion } from 'motion/react';
-import Link from 'next/link';
+import { Button } from "@/components/ui/custom-button";
 
 export default function CTASection() {
   return (
-    <section className="py-24 bg-[var(--rose-gold-dark)] text-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-[var(--rose-gold)]/10 to-transparent" />
+    <section 
+      className="relative py-20 sm:py-28 md:py-32 lg:py-40 before:absolute before:inset-x-0 before:-top-20 sm:before:-top-32 before:h-20 sm:before:h-32 before:bg-gradient-to-b before:from-white before:to-transparent before:pointer-events-none"
+    >
+      {/* Gradient background that starts from very light and ends with white */}
+      <div className="absolute inset-0" style={{ 
+        background: 'linear-gradient(to bottom, #fffefb 0%, #fffbf5 10%, #fff8f0 20%, #ffedd5 40%, #fed7aa 60%, #fbbf24 80%, #fef3c7 90%, #fffefb 95%, #ffffff 100%)' 
+      }} />
       
-      <div className="max-w-[1140px] mx-auto px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center"
+      {/* Main radial gradient - the sun effect */}
+      <div 
+        className="absolute inset-0"
+        style={{
+          background: `radial-gradient(ellipse 250% 200% at 50% 180%, 
+            #fde047 0%, 
+            #facc15 5%, 
+            #fbbf24 10%, 
+            #f59e0b 15%, 
+            rgba(245, 158, 11, 0.9) 25%, 
+            rgba(217, 119, 6, 0.7) 35%, 
+            rgba(180, 83, 9, 0.5) 45%, 
+            rgba(146, 64, 14, 0.3) 60%, 
+            rgba(255, 255, 255, 0.5) 75%,
+            rgba(255, 255, 255, 0.8) 85%,
+            #ffffff 95%
+          )`,
+        }}
+      />
+      
+      {/* Additional radial layers for richness */}
+      <div 
+        className="absolute inset-0"
+        style={{
+          background: `radial-gradient(circle 300% at 50% 200%, 
+            rgba(254, 240, 138, 0.3) 0%, 
+            rgba(252, 211, 77, 0.25) 15%, 
+            rgba(251, 191, 36, 0.2) 30%, 
+            rgba(245, 158, 11, 0.15) 45%, 
+            rgba(255, 255, 255, 0.3) 60%, 
+            rgba(255, 255, 255, 0.6) 70%,
+            #ffffff 85%
+          )`,
+        }}
+      />
+      
+      {/* Bright center glow */}
+      <div 
+        className="absolute inset-x-0 bottom-0 h-[80%]"
+        style={{
+          background: `radial-gradient(ellipse 80% 80% at 50% 100%, 
+            #fde047 0%, 
+            #facc15 20%, 
+            rgba(255, 255, 255, 0.5) 50%,
+            transparent 70%
+          )`,
+          opacity: 0.7,
+        }}
+      />
+      
+      {/* Extra vibrancy layer */}
+      <div 
+        className="absolute inset-0"
+        style={{
+          background: `radial-gradient(circle at 50% 100%, 
+            rgba(251, 191, 36, 0.4) 0%, 
+            rgba(245, 158, 11, 0.3) 30%, 
+            rgba(255, 255, 255, 0.5) 60%,
+            #ffffff 80%
+          )`,
+        }}
+      />
+
+      {/* Content */}
+      <div className="relative text-center space-y-6 sm:space-y-8 max-w-4xl mx-auto px-6 sm:px-8">
+        <h2 
+          className="text-2xl sm:text-3xl font-light tracking-tight text-gray-900 md:text-4xl lg:text-5xl transition-all duration-500"
+          style={{ 
+            fontFamily: "Nouvelle Grotesk",
+          }}
         >
-          <div className="inline-flex items-center gap-2 bg-[var(--rose-gold)]/20 px-4 py-2 rounded-full mb-8 rose-gold-text">
-            <span className="text-sm font-medium tracking-[1px] uppercase">
-              Limited Time Offer
-            </span>
-            <span className="font-bold">$100 OFF</span>
-            <span className="text-sm">select plans</span>
-          </div>
-          
-          <h2 className="text-[52px] font-bold leading-tight tracking-[-1.5px] mb-6">
-            Start Your Transformation Today
-          </h2>
-          
-          <p className="text-[20px] leading-[1.7] text-gray-300 max-w-2xl mx-auto mb-12">
-            Join over 50,000 patients who have achieved lasting weight loss with our 
-            physician-led GLP-1 program. Your journey to a healthier you starts here.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-            <Link
-              href="/get-started"
-              className="inline-flex items-center px-10 py-5 rose-gold-gradient text-white font-semibold rounded-full 
-                       shadow-[0px_8px_24px_var(--rose-gold-shadow-light)] hover:shadow-[0px_12px_32px_var(--rose-gold-shadow-intense)]
-                       transition-all duration-300 hover:-translate-y-1 text-lg"
-            >
-              Get Started Now
-            </Link>
-            <Link
-              href="/consultation"
-              className="inline-flex items-center px-10 py-5 rose-gold-border 
-                       font-medium rounded-full hover:rose-gold-gradient hover:text-white
-                       transition-all duration-300 text-lg rose-gold-text"
-            >
-              Book Free Consultation
-            </Link>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
-            {[
-              { icon: '✓', text: 'No insurance required' },
-              { icon: '✓', text: '100% money-back guarantee' },
-              { icon: '✓', text: 'Cancel anytime' }
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-                viewport={{ once: true }}
-                className="flex items-center justify-center gap-2"
-              >
-                <span className="rose-gold-text font-bold text-xl">{item.icon}</span>
-                <span className="text-gray-300">{item.text}</span>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-        
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="mt-[64px] border-t border-gray-700 pt-12"
-        >
-          <div className="text-center">
-            <p className="text-sm text-gray-400 mb-4">
-              Questions? Call us at{' '}
-              <a href="tel:1-888-299-5088" className="rose-gold-text font-semibold hover:opacity-80">
-                1-888-299-5088
-              </a>
-            </p>
-            <p className="text-sm text-gray-400">
-              Available Monday-Friday 8AM-8PM EDT • Saturday-Sunday 9AM-5PM EDT
-            </p>
-          </div>
-        </motion.div>
+          Your Transformation is Waiting.
+        </h2>
+        <p className="mx-auto max-w-2xl text-base sm:text-lg leading-relaxed text-gray-600">
+          You've seen the science and the results. Now, take the definitive step. Start your secure evaluation to connect with a provider and see if you qualify for our physician-led GLP-1 program.
+        </p>
+        <div className="pt-2 sm:pt-4">
+          <Button variant="circle-arrow" className="w-full sm:w-auto">
+            Start My Transformation Now →
+          </Button>
+        </div>
       </div>
     </section>
-  );
+  )
 }

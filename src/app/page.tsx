@@ -20,6 +20,12 @@ export default function Home() {
           >
             Landing Page 2
           </Link>
+          <Link
+            href="/landing-page-3"
+            className="rounded-lg bg-red-600 px-8 py-4 text-white transition-colors hover:bg-red-700"
+          >
+            Landing Page 3
+          </Link>
         </div>
       </main>
     </div>
