@@ -1,13 +1,9 @@
 "use client"
 
-import React, { useRef, useState } from "react"
-import { ProtocolCarousel, ProtocolCard } from "@/components/ui/protocol-cards-carousel"
-import { ArrowLeft, ArrowRight } from "lucide-react"
+import React from "react"
+import { motion } from "motion/react"
 
 export default function ProtocolSection() {
-  const carouselRef = useRef<HTMLDivElement>(null)
-  const [canScrollLeft, setCanScrollLeft] = useState(false)
-  const [canScrollRight, setCanScrollRight] = useState(true)
   const phases = [
     {
       number: "01",
@@ -59,22 +55,6 @@ export default function ProtocolSection() {
     },
   ]
 
-  const cards = phases.map((phase, index) => (
-    <ProtocolCard key={phase.number} card={phase} index={index} />
-  ))
-
-  const scrollLeft = () => {
-    if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: -300, behavior: "smooth" })
-    }
-  }
-
-  const scrollRight = () => {
-    if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: 300, behavior: "smooth" })
-    }
-  }
-
   return (
     <section className="w-full pt-16 sm:pt-20 md:pt-24 lg:pt-32 pb-16 sm:pb-24 md:pb-32 bg-black rounded-t-[2rem] sm:rounded-t-[3rem] -mt-4 sm:-mt-6 md:-mt-8 relative z-10">
       <div className="w-full">
@@ -86,29 +66,34 @@ export default function ProtocolSection() {
             Our simple, provider-led process is designed for clarity, safety, and lasting results.
           </p>
         </div>
-        <div className="flex items-center justify-between px-6 sm:px-8 md:px-16 lg:px-20 mb-6">
-          <div></div>
-          <div className="flex gap-2">
-            <button
-              onClick={scrollLeft}
-              disabled={!canScrollLeft}
-              className="h-10 w-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-white/20 transition-all disabled:opacity-30 disabled:hover:bg-white/10"
+        <div className="px-6 sm:px-8 md:px-16 lg:px-20">
+          {phases.map((phase, index) => (
+            <motion.div
+              key={phase.number}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-8 mb-16 last:mb-0`}
             >
-              <ArrowLeft className="h-4 w-4 text-white" />
-            </button>
-            <button
-              onClick={scrollRight}
-              disabled={!canScrollRight}
-              className="h-10 w-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-white/20 transition-all disabled:opacity-30 disabled:hover:bg-white/10"
-            >
-              <ArrowRight className="h-4 w-4 text-white" />
-            </button>
-          </div>
+              <div className="flex-1">
+                <div className="inline-block px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm mb-4">
+                  <span className="text-white font-bold">Phase {phase.number}</span>
+                </div>
+                <h3 className="text-3xl font-semibold text-white mb-4">{phase.title}</h3>
+                <p className="text-gray-300 leading-relaxed mb-6">{phase.description}</p>
+                <button className="text-white bg-white/10 hover:bg-white/20 px-6 py-3 rounded-full font-medium transition-colors">
+                  {phase.cta}
+                </button>
+              </div>
+              <div className="flex-1 relative">
+                <div className="aspect-video rounded-2xl overflow-hidden">
+                  <img src={phase.image} alt="" className="w-full h-full object-cover" />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl"></div>
+              </div>
+            </motion.div>
+          ))}
         </div>
-        <ProtocolCarousel items={cards} carouselRef={carouselRef} onScrollChange={(left, right) => {
-          setCanScrollLeft(left)
-          setCanScrollRight(right)
-        }} />
       </div>
     </section>
   )
