@@ -3,21 +3,21 @@
 import { motion } from "framer-motion";
 
 export default function WhatItIsSection() {
+  // --- COPY UPDATED HERE ---
+  // This new card data aligns with the "Simple Steps" and "All-In-One" theme from the new hero section.
+  // It focuses on benefits (Results, Safety, Convenience) rather than just features.
   const cardData = [
     {
-      number: "01",
-      title: "Provider-Prescribed GLP-1 Medication",
-      description: "Under the care of a physician, you'll receive a personalized GLP-1 medication. This is real medicine that works with your body's hormones to curb hunger and reset your metabolism."
+      title: "Real Medication, Real Results",
+      description: "You'll be prescribed a powerful, provider-led GLP-1 medication. It's not a fad diet; it's a science-backed treatment that works with your body to reduce hunger and support sustainable weight loss."
     },
     {
-      number: "02",
-      title: "Data-Driven and Personalized",
-      description: "Your treatment is guided by science, not guesswork. We use comprehensive lab work at the start and every 6 months to ensure your plan is safe, effective, and perfectly tuned to your body's needs."
+      title: "Safe and Tailored to You",
+      description: "Your journey starts with comprehensive lab work to ensure the treatment is right for you. Our medical team monitors your progress, adjusting your plan to maximize results safely and effectively."
     },
     {
-      number: "03",
-      title: "Concierge Telehealth Experience",
-      description: "Our program is designed for your life. From your first online visit to medication delivered to your door, we provide a seamless experience with ongoing provider care, all from the comfort of your home."
+      title: "Complete Concierge Care",
+      description: "From your online consultation to medication delivered discreetly to your door, we handle everything. Enjoy ongoing access to your provider and our support team, all from the comfort of home."
     }
   ];
 
@@ -30,22 +30,24 @@ export default function WhatItIsSection() {
           transition={{ duration: 0.5 }}
         >
           <div className="grid lg:grid-cols-2 gap-16">
+            {/* --- COPY UPDATED HERE --- */}
             {/* Header - Sticky on desktop */}
             <div className="lg:col-span-1 lg:sticky lg:top-24 lg:h-fit">
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-gray-900 mb-6" style={{ fontFamily: "Nouvelle Grotesk" }}>
-                A Smarter Approach to Weight Loss
+                Everything Included for Your Success
               </h2>
               <p className="text-xl md:text-2xl text-gray-900 font-light mb-4" style={{ fontFamily: "Nouvelle Grotesk" }}>
-                This is weight management, reimagined.
+                Our all-inclusive program is built on three core pillars:
               </p>
               <p className="text-lg text-gray-600 leading-relaxed mb-8" style={{ fontFamily: "Nouvelle Grotesk" }}>
-                — Our program uses proven medical science to address the biological drivers of weight, delivering results that last. Forget the guesswork and frustration of traditional diets.
+                We combine provider-led medical care with a seamless digital experience. No confusing plans, no pharmacy lines, and no hidden fees—just a straightforward path to achieving your goals.
               </p>
               <button 
                 className="text-lg font-medium text-gray-900 hover:text-gray-600 transition-colors inline-flex items-center gap-2"
                 style={{ fontFamily: "Nouvelle Grotesk" }}
+                onClick={() => { /* Add your navigation logic here, e.g., scrollTo('#pricing') or router.push('/get-started') */ }}
               >
-                Discover more →
+                Check Your Eligibility →
               </button>
             </div>
 
