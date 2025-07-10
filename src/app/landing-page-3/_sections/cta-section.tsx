@@ -81,11 +81,10 @@ export default function CTASection() {
             fontFamily: "Nouvelle Grotesk",
           }}
         >
-          The Wait Is Over. Your Transformation Starts Now.
+          Your Healthier Future Starts Now.
         </h2>
         <p className="mx-auto max-w-2xl text-base sm:text-lg leading-relaxed text-gray-600">
-          You've seen the science and the real-world results. The only thing left is to take the first step. Start your free, confidential evaluation to connect with a provider and discover if our program is right for you.
-        </p>
+ You've seen the science and the life-changing results. The only thing left is to take the first step. Start our quick, confidential evaluation to connect with a provider and discover if our program is right for you.        </p>
         <div className="pt-2 sm:pt-4">
           <Button variant="circle-arrow" className="w-full sm:w-auto">
             Start My Transformation Now →
