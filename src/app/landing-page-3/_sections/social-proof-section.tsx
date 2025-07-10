@@ -78,11 +78,10 @@ export default function SocialProofSection() {
       >
         <div className="max-w-3xl">
           <h2 className="text-2xl sm:text-3xl font-light tracking-tight text-gray-900 md:text-4xl mb-3 sm:mb-4" style={{ fontFamily: "Nouvelle Grotesk" }}>
-            Real Stories from People Just Like You
+            Achieve Life-Changing Results
           </h2>
           <p className="text-base sm:text-lg text-gray-600" style={{ fontFamily: "Nouvelle Grotesk" }}>
-            Thousands have already transformed their health with our physician-led GLP-1 program. See for yourself how our science-backed approach delivers life-changing, sustainable results.
-          </p>
+Join thousands who have left the frustration of yo-yo dieting behind. These are real stories from people who used our simple, provider-led program to achieve lasting success. Your transformation is possible, too.          </p>
         </div>
         <Button variant="default" className="w-full sm:w-auto sm:ml-8">
           See Their Stories
