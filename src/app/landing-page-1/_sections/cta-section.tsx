@@ -1,93 +1,97 @@
-"use client";
-
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "motion/react";
-import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/custom-button";
 
 export default function CTASection() {
-  const container = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ["start end", "end start"],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], ["0vh", "-10vh"]);
-  const opacity = useTransform(
-    scrollYProgress,
-    [0, 0.3, 0.7, 1],
-    [0.8, 1, 1, 0.8]
-  );
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.98, 1, 0.98]);
-
   return (
-    <section
-      ref={container}
-      className="relative h-[90vh] bg-[#1A1E29] overflow-hidden border-t border-[#F0E68C]/20 flex items-center"
+    <section 
+      className="relative py-20 sm:py-28 md:py-32 lg:py-40 before:absolute before:inset-x-0 before:-top-20 sm:before:-top-32 before:h-20 sm:before:h-32 before:bg-gradient-to-b before:from-white before:to-transparent before:pointer-events-none"
     >
-      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-5"></div>
+      {/* Gradient background that starts from very light and ends with white */}
+      <div className="absolute inset-0" style={{ 
+        background: 'linear-gradient(to bottom, #fffefb 0%, #fffbf5 10%, #fff8f0 20%, #ffedd5 40%, #fed7aa 60%, #fbbf24 80%, #fef3c7 90%, #fffefb 95%, #ffffff 100%)' 
+      }} />
+      
+      {/* Main radial gradient - the sun effect */}
+      <div 
+        className="absolute inset-0"
+        style={{
+          background: `radial-gradient(ellipse 250% 200% at 50% 180%, 
+            #fde047 0%, 
+            #facc15 5%, 
+            #fbbf24 10%, 
+            #f59e0b 15%, 
+            rgba(245, 158, 11, 0.9) 25%, 
+            rgba(217, 119, 6, 0.7) 35%, 
+            rgba(180, 83, 9, 0.5) 45%, 
+            rgba(146, 64, 14, 0.3) 60%, 
+            rgba(255, 255, 255, 0.5) 75%,
+            rgba(255, 255, 255, 0.8) 85%,
+            #ffffff 95%
+          )`,
+        }}
+      />
+      
+      {/* Additional radial layers for richness */}
+      <div 
+        className="absolute inset-0"
+        style={{
+          background: `radial-gradient(circle 300% at 50% 200%, 
+            rgba(254, 240, 138, 0.3) 0%, 
+            rgba(252, 211, 77, 0.25) 15%, 
+            rgba(251, 191, 36, 0.2) 30%, 
+            rgba(245, 158, 11, 0.15) 45%, 
+            rgba(255, 255, 255, 0.3) 60%, 
+            rgba(255, 255, 255, 0.6) 70%,
+            #ffffff 85%
+          )`,
+        }}
+      />
+      
+      {/* Bright center glow */}
+      <div 
+        className="absolute inset-x-0 bottom-0 h-[80%]"
+        style={{
+          background: `radial-gradient(ellipse 80% 80% at 50% 100%, 
+            #fde047 0%, 
+            #facc15 20%, 
+            rgba(255, 255, 255, 0.5) 50%,
+            transparent 70%
+          )`,
+          opacity: 0.7,
+        }}
+      />
+      
+      {/* Extra vibrancy layer */}
+      <div 
+        className="absolute inset-0"
+        style={{
+          background: `radial-gradient(circle at 50% 100%, 
+            rgba(251, 191, 36, 0.4) 0%, 
+            rgba(245, 158, 11, 0.3) 30%, 
+            rgba(255, 255, 255, 0.5) 60%,
+            #ffffff 80%
+          )`,
+        }}
+      />
 
-      <motion.div
-        style={{ y, opacity, scale }}
-        className="container mx-auto px-8 lg:px-16 relative z-10"
-      >
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl lg:text-6xl font-bold text-white mb-6"
-          >
-            Start Your Weight Loss Journey Today
-          </motion.h2>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-xl lg:text-2xl text-[#E0E0E0] mb-12 leading-relaxed"
-          >
-            Join thousands who have transformed their lives with our
-            provider-led GLP-1 program. No insurance required. No hidden fees.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="relative overflow-hidden px-8 py-4 rounded-full font-bold text-lg shadow-xl flex items-center justify-center gap-3 transition-all text-[#333333]"
-              style={{
-                background:
-                  "linear-gradient(to bottom right, #F0E68C, #D4AF37, #FFD700, #D4AF37)",
-              }}
-            >
-              Get Started
-              <ArrowRight className="w-5 h-5" />
-            </motion.button>
-
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-transparent hover:bg-white/10 text-white border-2 border-[#F0E68C] px-8 py-4 rounded-full font-bold text-lg shadow-xl transition-all"
-            >
-              Book a Consultation
-            </motion.button>
-          </motion.div>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-[#E0E0E0] text-sm mt-8"
-          >
-            100% Money-Back Guarantee • Same Price at Every Dose
-          </motion.p>
+      {/* Content */}
+      <div className="relative text-center space-y-6 sm:space-y-8 max-w-4xl mx-auto px-6 sm:px-8">
+        <h2 
+          className="text-2xl sm:text-3xl font-light tracking-tight text-gray-900 md:text-4xl lg:text-5xl transition-all duration-500"
+          style={{ 
+            fontFamily: "Nouvelle Grotesk",
+          }}
+        >
+          Your Transformation is Waiting.
+        </h2>
+        <p className="mx-auto max-w-2xl text-base sm:text-lg leading-relaxed text-gray-600">
+          You've seen the science and the results. Now, take the definitive step. Start your secure evaluation to connect with a provider and see if you qualify for our physician-led GLP-1 program.
+        </p>
+        <div className="pt-2 sm:pt-4">
+          <Button variant="circle-arrow" className="w-full sm:w-auto">
+            Start My Transformation Now →
+          </Button>
         </div>
-      </motion.div>
+      </div>
     </section>
-  );
+  )
 }
