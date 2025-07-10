@@ -98,11 +98,22 @@ export default function PricingSection() {
             <p className="text-sm text-gray-500">12-month commitment • Prescription required</p>
           </div>
           <div className="relative">
-            <img 
-              src="/u7488359357_product_photo_of_a_plain_medical_vial_for_GLP-1_w_1a39bc17-8f61-449b-be38-41204fd21630_1.png" 
-              alt="GLP-1 Product"
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              key={selectedProduct}
               className="w-full h-[400px] object-cover rounded-2xl"
-            />
+            >
+              <source 
+                src={selectedProduct === 'standard' 
+                  ? "/videos/social_u2634596518_feature_a_medicinal_vial_--ar_9151_--motion_high__1c69a947-f478-467f-b3dc-7edb77eed054_0.mp4"
+                  : "/videos/social_u2634596518_feature_a_medicinal_vial_--ar_9151_--motion_high__013735b4-709c-4a90-a0a5-04fc5b8810e9_2.mp4"
+                } 
+                type="video/mp4" 
+              />
+            </video>
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/60 to-transparent p-8 rounded-b-2xl">
               <h4 className="text-white font-medium mb-4">Everything Included:</h4>
               <div className="grid grid-cols-2 gap-x-4 gap-y-2">
