@@ -8,32 +8,34 @@ import { Check } from 'lucide-react'
 export default function PricingSection() {
   const [selectedProduct, setSelectedProduct] = useState<'standard' | 'advanced'>('advanced')
 
-  // Updated product copy for better conversion
+  // --- COPY UPDATED HERE ---
+  // The copy is now consistent with the "all-in-one" and "fully supported" messaging.
+  // Feature lists are more parallel and benefit-focused.
   const products = {
     standard: {
-      name: 'Standard GLP-1',
+      name: 'Compounded GLP-1',
       price: 212,
-      description: 'The foundational tools for your physician-led weight loss journey.',
+      description: 'Our all-in-one program with everything you need to start your journey using the proven power of GLP-1 medication.',
       features: [
-        'GLP-1 Medication (4-Week Supply)',
-        'Dedicated Provider Check-Ins',
-        'Initial Metabolic Lab Work',
-        'Complete Supply & Support Kit',
-        'Access to Wellness Coaching',
-        'Ongoing Provider Care',
+        'Compounded GLP-1 Medication',
+        'Ongoing Provider Care & Support',
+        'Metabolic Lab Testing Every 6 Months',
+        'Syringes & Alcohol Pads Kit',
+        'Nutrition & Wellness Coaching',
+        'Platform Access & Educational Content',
       ],
     },
     advanced: {
       name: 'Advanced GLP-1 + GIP',
       price: 323,
-      description: 'Our most powerful protocol for accelerated, sustainable results.',
+      description: 'For enhanced results, this plan combines GLP-1 and GIP for our most powerful approach to metabolic health.',
       features: [
         'Advanced GLP-1 + GIP Medication',
-        'Unlimited Provider Messaging & Support',
-        'Comprehensive Lab Testing Every 6 Months',
-        'Complete Supply & Support Kit',
-        'Personalized Nutrition & Wellness Coaching',
-        'Full Access to Educational Content',
+        'Unlimited Provider Messaging',
+        'Metabolic Lab Testing Every 6 Months',
+        'Syringes & Alcohol Pads Kit',
+        'Personalized Nutrition & Wellness Plan',
+        'Full Platform & Content Access',
       ],
     },
   }
@@ -43,19 +45,20 @@ export default function PricingSection() {
   return (
     <section className="py-16 sm:py-24 md:py-32 px-6 sm:px-8 md:px-16 lg:px-20 bg-white">
       <div className="max-w-7xl mx-auto">
+        {/* --- COPY UPDATED HERE --- */}
         {/* Header */}
         <div className="grid md:grid-cols-2 gap-6 sm:gap-8 items-start mb-12 sm:mb-20 md:mb-24">
           <div className="space-y-3 sm:space-y-4">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-gray-900" style={{ fontFamily: "Nouvelle Grotesk" }}>
-              Your All-Inclusive Transformation Program
+              Simple, All-Inclusive Pricing
             </h2>
             <p className="text-base sm:text-lg text-gray-700 leading-relaxed max-w-2xl">
-              Everything you need for a total metabolic transformation in one simple, transparent plan. Your journey is fully supported from day one, with no hidden fees or surprise costs.
+              Choose the plan that's right for you. Both are fully supported from day one, with medication, provider care, and lab work included. No hidden fees or surprise costs.
             </p>
           </div>
           <div className="flex items-center justify-start sm:justify-end mt-4 sm:mt-0">
             <Button variant="default" className="w-full sm:w-auto">
-              Get Started Today
+              Check Your Eligibility
             </Button>
           </div>
         </div>
@@ -72,7 +75,7 @@ export default function PricingSection() {
                   : "text-gray-600 hover:text-gray-900"
               )}
             >
-              Standard GLP-1
+              GLP-1 Plan
             </button>
             <button
               onClick={() => setSelectedProduct('advanced')}
@@ -83,7 +86,7 @@ export default function PricingSection() {
                   : "text-gray-600 hover:text-gray-900"
               )}
             >
-              Advanced GLP-1 + GIP
+              GLP-1 + GIP Plan
             </button>
           </div>
         </div>
@@ -97,8 +100,9 @@ export default function PricingSection() {
               <span className="text-6xl font-light text-gray-900">${currentProduct.price}</span>
               <span className="text-2xl text-gray-600">/month</span>
             </div>
-            <Button variant="default" className="mb-4">Start Your Transformation</Button>
-            <p className="text-sm text-gray-500">12-month commitment • Prescription required</p>
+            {/* --- CTA UPDATED --- */}
+            <Button variant="default" className="mb-4">Start With This Plan</Button>
+            <p className="text-sm text-gray-500">Billed upfront for 12-month plan • Prescription required</p>
           </div>
           <div className="relative">
             <video
@@ -134,7 +138,7 @@ export default function PricingSection() {
         {/* Footer notes */}
         <div className="mt-12 text-center">
           <p className="text-sm text-gray-500">
-            *Payable upfront with a 12-month plan. Prescription products require an online consultation with a healthcare provider.
+            *Pricing reflects the cost for a 12-month plan, payable upfront. Prescription products require an online consultation with a healthcare provider.
           </p>
         </div>
       </div>
