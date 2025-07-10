@@ -322,9 +322,9 @@ export default function HeroSection() {
   const currentVideoStyle = videoStyleOptions.find(style => style.id === 16) || videoStyleOptions[0]
 
   return (
-    <section className="w-full h-screen relative pt-16">
+    <section className="w-full h-screen relative pt-24">
 
-      <div className={`relative h-[calc(100vh-4rem)] w-full ${currentVideoStyle.containerClass}`}>
+      <div className={`relative h-[calc(100vh-6rem)] w-full ${currentVideoStyle.containerClass}`}>
         {/* Video with dynamic styling */}
         <div className={`absolute inset-0 overflow-hidden ${currentVideoStyle.className} ${currentVideoStyle.maskClass}`}>
           <video
@@ -384,8 +384,12 @@ export default function HeroSection() {
               currentLayout.className.includes('text-left') ? 'justify-center sm:justify-start' : 
               'justify-center'
             }`}>
-              <Button variant="glass" className="text-white hover:bg-white hover:text-black w-full sm:w-auto">How It Works</Button>
-              <Button variant="default" className="bg-white text-black hover:bg-gray-100 w-full sm:w-auto">Get Started</Button>
+              <Button variant="glass" className="text-white hover:bg-white hover:text-black w-full sm:w-auto">
+                How It Works
+              </Button>
+              <Button variant="default" className="w-full sm:w-auto">
+                Get Started Today
+              </Button>
             </div>
           </motion.div>
         </div>

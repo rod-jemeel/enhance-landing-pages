@@ -13,7 +13,6 @@ export default function ScrollNavbarController() {
       
       // Get all sections that have dark backgrounds
       const darkSections = [
-        document.getElementById('hero-section'),
         document.getElementById('protocol-section'),
         document.getElementById('transformation-quote-section'),
       ]
@@ -31,10 +30,6 @@ export default function ScrollNavbarController() {
         }
       })
       
-      // Also check if we're at the very top of the page (hero section)
-      if (scrollY < 100) {
-        isDarkBackground = true
-      }
       
       setIsTransparent(isDarkBackground)
     }
