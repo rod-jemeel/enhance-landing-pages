@@ -11,7 +11,7 @@ export default function TransformationQuoteSection() {
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
       >
-        <source src="/videos/transformation-quote.mp4" type="video/mp4" />
+        <source src="/videos/social_u2634596518_a_woman_holding_a_medicinal_vial_--ar_9151_--moti_e72ce3e4-4fe9-4b5b-877d-3a0a82717b60_2.mp4" type="video/mp4" />
       </video>
       
       {/* Overlay */}

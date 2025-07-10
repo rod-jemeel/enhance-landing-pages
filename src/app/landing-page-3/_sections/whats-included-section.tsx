@@ -37,7 +37,7 @@ export default function WhatsIncludedSection() {
       summary: "Everything you need—medication, supplies, and coaching access—delivered discreetly to your door.",
       description: "We make it easy. Each month, you'll receive a complete kit with your medication, all necessary supplies like syringes and alcohol pads, and full access to our nutrition and wellness coaching platform. It's all delivered discreetly to your doorstep.",
       icon: <Package className="w-6 h-6" />,
-      image: "/images/landing-page-2/protocol-4.png"
+      image: "/videos/u2634596518_We_make_it_easy._Each_month_youll_receive_a_complet_27d08ece-15b2-4127-a971-00fdff5c6ffe.png"
     },
   ];
 

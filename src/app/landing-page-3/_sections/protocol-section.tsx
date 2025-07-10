@@ -27,7 +27,7 @@ export default function ProtocolSection() {
       borderColor: "border-stone-200",
       textColor: "text-stone-900",
       accentColor: "bg-stone-100",
-      image: "/Protocol Design.png",
+      video: "/videos/social_u2634596518_feature_a_medicinal_vial_--ar_9151_--motion_high__1c69a947-f478-467f-b3dc-7edb77eed054_0.mp4",
       cta: "Learn more →",
     },
     {
@@ -88,7 +88,19 @@ export default function ProtocolSection() {
               </div>
               <div className="flex-1 relative">
                 <div className="aspect-video rounded-2xl overflow-hidden">
-                  <img src={phase.image} alt={`${phase.title} illustration`} className="w-full h-full object-cover" />
+                  {phase.video ? (
+                    <video
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="w-full h-full object-cover"
+                    >
+                      <source src={phase.video} type="video/mp4" />
+                    </video>
+                  ) : (
+                    <img src={phase.image} alt={`${phase.title} illustration`} className="w-full h-full object-cover" />
+                  )}
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl"></div>
               </div>

@@ -334,7 +334,7 @@ export default function HeroSection() {
             playsInline
             className={`absolute inset-0 h-full w-full object-cover ${currentVideoStyle.className}`}
           >
-            <source src="/videos/hero-video (2).mp4" type="video/mp4" />
+            <source src="/videos/social_u2634596518_womans_upper_body_holding_a_blank_medicinal_vial__ec939f2d-342c-454e-ad17-6f42eeed4f31_3.mp4" type="video/mp4" />
           </video>
           <div className={`absolute inset-0 ${currentVideoStyle.overlayClass}`} />
         </div>
