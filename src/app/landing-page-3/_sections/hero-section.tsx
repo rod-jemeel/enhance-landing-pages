@@ -367,10 +367,10 @@ export default function HeroSection() {
               currentLayout.isOffset ? 'text-4xl sm:text-5xl md:text-6xl lg:text-7xl' :
               'text-3xl sm:text-4xl md:text-5xl lg:text-6xl'
             }`} style={{ fontFamily: "Nouvelle Grotesk" }}>
-              Your Path to Lasting Weight Loss Starts Here.
+              Physician-Led Weight Loss. Real, Lasting Results.
             </h1>
             <div className="mb-6 sm:mb-8">
-              <p className="text-base sm:text-lg text-white mb-3 sm:mb-4">Join thousands who have achieved life-changing results with our simple, provider-led GLP-1 program.</p>
+              <p className="text-base sm:text-lg text-white mb-3 sm:mb-4">Your health is our top priority. Our program combines proven GLP-1 medication with dedicated provider care, comprehensive lab work, and ongoing support for a safe and effective journey.</p>
               <div className={`flex ${
                 currentLayout.className.includes('text-right') ? 'justify-center sm:justify-end' : 
                 currentLayout.className.includes('text-left') ? 'justify-center sm:justify-start' : 
@@ -388,7 +388,7 @@ export default function HeroSection() {
                 How It Works
               </Button>
               <Button variant="default" className="w-full sm:w-auto">
-                Get Started Today
+                Start My Consultation
               </Button>
             </div>
           </motion.div>
