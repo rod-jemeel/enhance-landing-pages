@@ -45,177 +45,388 @@ const successStories = [
 const layoutOptions = [
   { 
     id: 1, 
-    name: "Classic Center", 
+    name: "Blob Mask Organic", 
     className: "items-center justify-center text-center",
-    contentClass: ""
+    contentClass: "",
+    useBlobMask: true,
+    blobType: "organic"
   },
   { 
     id: 2, 
-    name: "Bottom Right", 
-    className: "items-end justify-center sm:justify-end text-center sm:text-right",
-    contentClass: ""
+    name: "Blob Mask Fluid", 
+    className: "items-end justify-start text-left",
+    contentClass: "sm:max-w-xl",
+    useBlobMask: true,
+    blobType: "fluid"
   },
   { 
     id: 3, 
-    name: "Split Vertical", 
-    className: "items-center justify-end text-left",
-    contentClass: "sm:w-1/2 sm:pl-8",
-    showVerticalLine: true
+    name: "Bordered Video Frame", 
+    className: "items-center justify-center text-center",
+    contentClass: "",
+    useBorderedVideo: true,
+    borderStyle: "thick"
   },
   { 
     id: 4, 
-    name: "Corner Card", 
-    className: "items-start justify-start",
-    contentClass: "bg-black/50 backdrop-blur-md p-8 sm:p-12 rounded-br-3xl mt-20",
-    isCard: true,
-    ignoreDefaultPadding: true
+    name: "Split Frame Video", 
+    className: "items-center justify-end text-right",
+    contentClass: "sm:w-1/2 sm:pr-8",
+    useBorderedVideo: true,
+    borderStyle: "split"
   },
   { 
     id: 5, 
-    name: "Full Width Bottom", 
-    className: "items-end justify-center text-center",
-    contentClass: "w-full max-w-none bg-gradient-to-t from-black/80 to-transparent pb-12 pt-20 -mx-6 sm:-mx-8 md:-mx-16 px-6 sm:px-8 md:px-16",
-    isFullWidth: true,
-    ignoreDefaultPadding: true
+    name: "Modular Grid - Bento", 
+    className: "items-center justify-center",
+    contentClass: "",
+    useModularGrid: true,
+    gridType: "bento"
   },
   { 
     id: 6, 
-    name: "Diagonal Split", 
-    className: "items-center justify-end text-right",
-    contentClass: "relative",
-    showDiagonal: true
+    name: "Modular Grid - Asymmetric", 
+    className: "items-start justify-start",
+    contentClass: "",
+    useModularGrid: true,
+    gridType: "asymmetric"
   },
   { 
     id: 7, 
-    name: "Side Panel", 
-    className: "items-stretch justify-end",
-    contentClass: "bg-black/70 backdrop-blur-lg p-8 sm:p-16 sm:w-[500px] flex flex-col justify-center h-full -my-6 sm:-my-8 md:-my-16 -mr-6 sm:-mr-8 md:-mr-16",
-    isSidePanel: true,
-    ignoreDefaultPadding: true
+    name: "Blob + Grid Hybrid", 
+    className: "items-center justify-center",
+    contentClass: "",
+    useBlobMask: true,
+    blobType: "geometric",
+    useModularGrid: true,
+    gridType: "minimal"
   },
   { 
     id: 8, 
-    name: "Offset Stack", 
-    className: "items-center justify-center sm:justify-start sm:items-end pb-20 sm:pl-20",
+    name: "Rounded Corner Video", 
+    className: "items-center justify-center text-center",
     contentClass: "",
-    isOffset: true
+    useBorderedVideo: true,
+    borderStyle: "rounded"
   },
   { 
     id: 9, 
-    name: "Minimal Top", 
-    className: "items-start justify-center text-center",
-    contentClass: "mt-32",
-    isMinimal: true
+    name: "Brutalist Grid", 
+    className: "items-start justify-start",
+    contentClass: "",
+    useModularGrid: true,
+    gridType: "brutalist"
   },
   { 
     id: 10, 
-    name: "Magazine", 
-    className: "items-end justify-start text-left",
+    name: "Liquid Blob Mask", 
+    className: "items-center justify-start text-left",
     contentClass: "sm:max-w-lg",
-    showMagazineStyle: true
+    useBlobMask: true,
+    blobType: "liquid"
   }
 ]
 
 export default function HeroSection() {
-  const [selectedLayout, setSelectedLayout] = useState(5)
-
-  const currentLayout = layoutOptions.find(layout => layout.id === selectedLayout) || layoutOptions[1]
-
+  // Using Blob + Grid Hybrid layout (id: 7)
+  const currentLayout = layoutOptions.find(layout => layout.id === 7)!
 
   return (
-    <section className="w-full h-screen relative">
+    <section className="w-full h-screen relative" style={{ marginTop: '80px' }}>
 
-      <div className="relative h-full w-full">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 h-full w-full object-cover"
-        >
-          <source src="/videos/hero-video (2).mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/20" />
-        
-        {/* Vertical Line for Split Layout */}
-        {currentLayout.showVerticalLine && (
-          <div className="hidden sm:block absolute left-1/2 top-0 bottom-0 w-[1px] bg-white/30 z-10" />
+      <div className="relative h-[calc(100vh-80px)] w-full">
+        {/* Blob Mask Styles */}
+        {currentLayout.useBlobMask && (
+          <>
+            {currentLayout.blobType === "organic" && (
+              <div className="absolute inset-0">
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="h-full w-full object-cover"
+                  style={{
+                    clipPath: "url(#organic-blob)",
+                    WebkitClipPath: "url(#organic-blob)"
+                  }}
+                >
+                  <source src="/videos/hero-video (2).mp4" type="video/mp4" />
+                </video>
+                <svg width="0" height="0">
+                  <defs>
+                    <clipPath id="organic-blob" clipPathUnits="objectBoundingBox">
+                      <path d="M0.8,0.1 C0.95,0.15 0.98,0.3 0.95,0.5 C0.92,0.7 0.85,0.85 0.7,0.9 C0.55,0.95 0.35,0.92 0.2,0.85 C0.05,0.78 0.02,0.6 0.05,0.4 C0.08,0.2 0.15,0.05 0.3,0.02 C0.45,-0.01 0.65,0.05 0.8,0.1" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </div>
+            )}
+            {currentLayout.blobType === "fluid" && (
+              <div className="absolute inset-0">
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="h-full w-full object-cover"
+                  style={{
+                    maskImage: "radial-gradient(ellipse 80% 60% at 30% 40%, black 40%, transparent 70%)",
+                    WebkitMaskImage: "radial-gradient(ellipse 80% 60% at 30% 40%, black 40%, transparent 70%)"
+                  }}
+                >
+                  <source src="/videos/hero-video (2).mp4" type="video/mp4" />
+                </video>
+              </div>
+            )}
+            {currentLayout.blobType === "geometric" && (
+              <div className="absolute inset-0">
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="h-full w-full object-cover"
+                  style={{
+                    clipPath: "polygon(0 20%, 40% 0, 100% 15%, 100% 80%, 60% 100%, 0 85%)",
+                    WebkitClipPath: "polygon(0 20%, 40% 0, 100% 15%, 100% 80%, 60% 100%, 0 85%)"
+                  }}
+                >
+                  <source src="/videos/hero-video (2).mp4" type="video/mp4" />
+                </video>
+              </div>
+            )}
+            {currentLayout.blobType === "liquid" && (
+              <div className="absolute inset-0">
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="h-full w-full object-cover animate-pulse"
+                  style={{
+                    maskImage: "radial-gradient(circle at 20% 50%, black 30%, transparent 70%), radial-gradient(circle at 80% 50%, black 30%, transparent 70%)",
+                    WebkitMaskImage: "radial-gradient(circle at 20% 50%, black 30%, transparent 70%), radial-gradient(circle at 80% 50%, black 30%, transparent 70%)"
+                  }}
+                >
+                  <source src="/videos/hero-video (2).mp4" type="video/mp4" />
+                </video>
+              </div>
+            )}
+          </>
+        )}
+
+        {/* Bordered Video Styles */}
+        {currentLayout.useBorderedVideo && (
+          <>
+            {currentLayout.borderStyle === "thick" && (
+              <div className="absolute inset-8 sm:inset-12 md:inset-16 border-4 border-white/80 rounded-2xl overflow-hidden">
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="h-full w-full object-cover"
+                >
+                  <source src="/videos/hero-video (2).mp4" type="video/mp4" />
+                </video>
+              </div>
+            )}
+            {currentLayout.borderStyle === "split" && (
+              <>
+                <div className="absolute left-0 top-0 w-1/2 h-full border-r-2 border-white/30 overflow-hidden">
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="h-full w-full object-cover scale-110"
+                  >
+                    <source src="/videos/hero-video (2).mp4" type="video/mp4" />
+                  </video>
+                </div>
+                <div className="absolute right-0 top-0 w-1/2 h-full bg-black/90" />
+              </>
+            )}
+            {currentLayout.borderStyle === "rounded" && (
+              <div className="absolute inset-4 sm:inset-8 md:inset-12">
+                <div className="relative h-full w-full rounded-[3rem] overflow-hidden shadow-2xl">
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="h-full w-full object-cover"
+                  >
+                    <source src="/videos/hero-video (2).mp4" type="video/mp4" />
+                  </video>
+                  <div className="absolute inset-0 rounded-[3rem] ring-1 ring-inset ring-white/20" />
+                </div>
+              </div>
+            )}
+          </>
+        )}
+
+        {/* Default Video (no special mask or border) */}
+        {!currentLayout.useBlobMask && !currentLayout.useBorderedVideo && (
+          <>
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 h-full w-full object-cover"
+            >
+              <source src="/videos/hero-video (2).mp4" type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/20" />
+          </>
         )}
         
-        {/* Diagonal Line for Diagonal Split */}
-        {currentLayout.showDiagonal && (
-          <div className="hidden sm:block absolute inset-0 z-10">
-            <div className="absolute top-0 right-0 w-0 h-0 border-l-[100vw] border-l-transparent border-t-[100vh] border-t-black/30" />
-          </div>
-        )}
-        
-        {/* Magazine Style Border */}
-        {currentLayout.showMagazineStyle && (
-          <div className="hidden sm:block absolute left-8 bottom-8 top-8 w-[2px] bg-white/50 z-10" />
+        {/* Modular Grid Overlays */}
+        {currentLayout.useModularGrid && (
+          <>
+            {currentLayout.gridType === "bento" && (
+              <div className="absolute inset-0 pointer-events-none z-10">
+                <div className="h-full w-full grid grid-cols-12 grid-rows-6 gap-1">
+                  <div className="col-span-4 row-span-2 border border-white/20" />
+                  <div className="col-span-8 row-span-3 border border-white/20" />
+                  <div className="col-span-4 row-span-4 border border-white/20" />
+                  <div className="col-span-8 row-span-3 border border-white/20" />
+                </div>
+              </div>
+            )}
+            {currentLayout.gridType === "asymmetric" && (
+              <div className="absolute inset-0 pointer-events-none z-10">
+                <div className="h-full w-full grid grid-cols-5 gap-px bg-white/10">
+                  <div className="col-span-2 bg-black" />
+                  <div className="col-span-1 bg-black" />
+                  <div className="col-span-2 bg-black" />
+                </div>
+              </div>
+            )}
+            {currentLayout.gridType === "brutalist" && (
+              <div className="absolute inset-0 pointer-events-none z-10">
+                <div className="h-full w-full">
+                  <div className="absolute top-0 left-0 w-1/3 h-1/3 border-4 border-white" />
+                  <div className="absolute bottom-0 right-0 w-2/3 h-1/2 border-4 border-white" />
+                  <div className="absolute top-1/3 left-1/3 w-1/3 h-1/3 bg-white/20" />
+                </div>
+              </div>
+            )}
+            {currentLayout.gridType === "minimal" && (
+              <div className="absolute inset-0 pointer-events-none z-10">
+                <div className="h-full w-full grid grid-cols-3 grid-rows-3">
+                  <div className="border-r border-b border-white/10" />
+                  <div className="border-r border-b border-white/10" />
+                  <div className="border-b border-white/10" />
+                  <div className="border-r border-b border-white/10" />
+                  <div className="border-r border-b border-white/10" />
+                  <div className="border-b border-white/10" />
+                  <div className="border-r border-white/10" />
+                  <div className="border-r border-white/10" />
+                  <div />
+                </div>
+              </div>
+            )}
+          </>
         )}
         
         {/* Dynamic Text Layout */}
-        <div className={`relative z-10 h-full w-full flex ${currentLayout.className} ${!currentLayout.ignoreDefaultPadding && 'p-6 sm:p-8 md:p-16'}`}>
-          <div className={`${!currentLayout.isFullWidth ? 'max-w-2xl' : ''} ${currentLayout.contentClass || ''} ${!currentLayout.isSidePanel ? 'w-full' : ''}`}>
-            <h1 className={`mb-4 sm:mb-6 font-light leading-tight tracking-tight text-white ${
-              currentLayout.isMinimal ? 'text-2xl sm:text-3xl md:text-4xl' : 
-              currentLayout.isOffset ? 'text-4xl sm:text-5xl md:text-6xl lg:text-7xl' :
-              'text-3xl sm:text-4xl md:text-5xl lg:text-6xl'
-            }`} style={{ fontFamily: "Nouvelle Grotesk" }}>
-              {currentLayout.isMinimal ? (
-                <>Your Path to Lasting Weight Loss</>
-              ) : currentLayout.showMagazineStyle ? (
-                <>
-                  <span className="block text-sm uppercase tracking-widest mb-2 text-white/70">Medical Weight Loss</span>
-                  Your Path to<br />
-                  Lasting Weight Loss<br />
-                  With a Physician-Led<br />
-                  GLP-1 Program
-                </>
-              ) : (
-                <>
-                  Your Path to Lasting Weight Loss<br />
-                  With a Physician-Led GLP-1 Program
-                </>
-              )}
-            </h1>
-            <div className="mb-6 sm:mb-8">
-              <p className="text-base sm:text-lg text-white mb-3 sm:mb-4">Join thousands achieving life-changing results with our simple, provider-led plan.</p>
-              <div className={`flex ${
+        <div className={`relative z-20 h-[calc(100vh-80px)] w-full flex ${currentLayout.className} p-6 sm:p-8 md:p-16`}>
+          {currentLayout.useModularGrid && currentLayout.gridType === "bento" ? (
+            <div className="grid grid-cols-12 grid-rows-6 gap-4 w-full h-full">
+              <div className="col-span-12 sm:col-span-8 row-span-2 sm:row-span-3 flex items-center justify-center sm:justify-start">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight tracking-tight text-white text-center sm:text-left" style={{ fontFamily: "Nouvelle Grotesk" }}>
+                  Your Path to<br className="hidden sm:block" />
+                  <span className="block sm:inline"> Lasting Weight Loss</span>
+                </h1>
+              </div>
+              <div className="col-span-12 sm:col-span-4 row-span-1 sm:row-span-2 flex items-center justify-center bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                <AnimatedTooltip items={successStories} />
+              </div>
+              <div className="col-span-12 sm:col-span-8 row-span-2 sm:row-span-3 flex flex-col items-center sm:items-start justify-center gap-4">
+                <p className="text-base sm:text-lg text-white text-center sm:text-left">Join thousands achieving life-changing results with our simple, provider-led plan.</p>
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
+                  <Button variant="glass" className="text-white hover:bg-white hover:text-black w-full sm:w-auto">How It Works</Button>
+                  <Button variant="default" className="bg-white text-black hover:bg-gray-100 w-full sm:w-auto">Get Started</Button>
+                </div>
+              </div>
+            </div>
+          ) : currentLayout.useModularGrid && currentLayout.gridType === "asymmetric" ? (
+            <div className="grid grid-cols-1 sm:grid-cols-5 gap-8 w-full h-full">
+              <div className="sm:col-span-2 flex flex-col justify-center items-center sm:items-start bg-black/60 backdrop-blur-md p-8 rounded-lg">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-light leading-tight tracking-tight text-white mb-6 text-center sm:text-left" style={{ fontFamily: "Nouvelle Grotesk" }}>
+                  Your Path to Lasting Weight Loss
+                </h1>
+                <div className="flex justify-center sm:justify-start mb-4">
+                  <AnimatedTooltip items={successStories} />
+                </div>
+              </div>
+              <div className="sm:col-span-1 flex items-center justify-center">
+                <div className="w-full h-48 sm:h-full max-h-96 border-2 border-white/30 rounded-lg" />
+              </div>
+              <div className="sm:col-span-2 flex flex-col justify-center items-center sm:items-start gap-6 bg-black/60 backdrop-blur-md p-8 rounded-lg">
+                <p className="text-base sm:text-lg text-white text-center sm:text-left">Join thousands achieving life-changing results with our simple, provider-led plan.</p>
+                <div className="flex flex-col sm:flex-row gap-3 w-full">
+                  <Button variant="glass" className="text-white hover:bg-white hover:text-black flex-1">How It Works</Button>
+                  <Button variant="default" className="bg-white text-black hover:bg-gray-100 flex-1">Get Started</Button>
+                </div>
+              </div>
+            </div>
+          ) : currentLayout.useModularGrid && currentLayout.gridType === "brutalist" ? (
+            <div className="relative w-full h-full">
+              <div className="absolute top-0 left-0 w-full sm:w-1/2 lg:w-1/3 h-auto sm:h-1/3 p-8 bg-white text-black">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold uppercase" style={{ fontFamily: "Nouvelle Grotesk" }}>Your Path</h1>
+              </div>
+              <div className="absolute top-1/3 sm:top-1/3 left-0 sm:left-1/3 right-0 sm:right-auto w-full sm:w-1/3 p-8">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-white" style={{ fontFamily: "Nouvelle Grotesk" }}>to Lasting<br />Weight Loss</h2>
+              </div>
+              <div className="absolute bottom-0 right-0 w-full sm:w-2/3 p-8 bg-black/80 backdrop-blur-md">
+                <p className="text-base sm:text-lg text-white mb-6">Join thousands achieving life-changing results with our simple, provider-led plan.</p>
+                <div className="flex justify-center sm:justify-start mb-4">
+                  <AnimatedTooltip items={successStories} />
+                </div>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Button variant="glass" className="text-white hover:bg-white hover:text-black">How It Works</Button>
+                  <Button variant="default" className="bg-white text-black hover:bg-gray-100">Get Started</Button>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className={`max-w-2xl ${currentLayout.contentClass || ''} w-full`}>
+              <h1 className="mb-4 sm:mb-6 font-light leading-tight tracking-tight text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl" style={{ fontFamily: "Nouvelle Grotesk" }}>
+                Your Path to Lasting Weight Loss<br />
+                With a Physician-Led GLP-1 Program
+              </h1>
+              <div className="mb-6 sm:mb-8">
+                <p className="text-base sm:text-lg text-white mb-3 sm:mb-4">Join thousands achieving life-changing results with our simple, provider-led plan.</p>
+                <div className={`flex ${
+                  currentLayout.className.includes('text-right') ? 'justify-center sm:justify-end' : 
+                  currentLayout.className.includes('text-left') ? 'justify-center sm:justify-start' : 
+                  'justify-center'
+                }`}>
+                  <AnimatedTooltip items={successStories} />
+                </div>
+              </div>
+              <div className={`flex flex-col gap-3 sm:gap-4 sm:flex-row ${
                 currentLayout.className.includes('text-right') ? 'justify-center sm:justify-end' : 
                 currentLayout.className.includes('text-left') ? 'justify-center sm:justify-start' : 
                 'justify-center'
               }`}>
-                <AnimatedTooltip items={successStories} />
+                <Button variant="glass" className="text-white hover:bg-white hover:text-black w-full sm:w-auto">How It Works</Button>
+                <Button variant="default" className="bg-white text-black hover:bg-gray-100 w-full sm:w-auto">Get Started</Button>
               </div>
             </div>
-            <div className={`flex flex-col gap-3 sm:gap-4 sm:flex-row ${
-              currentLayout.className.includes('text-right') ? 'justify-center sm:justify-end' : 
-              currentLayout.className.includes('text-left') ? 'justify-center sm:justify-start' : 
-              'justify-center'
-            }`}>
-              <Button variant="glass" className="text-white hover:bg-white hover:text-black w-full sm:w-auto">How It Works</Button>
-              <Button variant="default" className="bg-white text-black hover:bg-gray-100 w-full sm:w-auto">Get Started</Button>
-            </div>
-          </div>
+          )}
         </div>
         
-        {/* Scroll Indicator - Hidden on mobile */}
-        {selectedLayout === 5 ? (
-          // Right-side scroll indicator for Full Width Bottom
-          <div className="hidden sm:flex absolute bottom-8 right-8 z-20 flex-col items-center animate-bounce">
-            <p className="text-xs text-white/70 uppercase tracking-widest rotate-90 mb-8">Scroll</p>
-            <div className="w-[1px] h-8 bg-white/30 mb-2" />
-            <div className="w-2 h-2 rounded-full bg-white/70" />
-          </div>
-        ) : (
-          // Default centered scroll indicator for other layouts
-          <div className="hidden sm:flex absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex-col items-center gap-2 animate-bounce">
-            <p className="text-xs text-white/70 uppercase tracking-widest">Scroll</p>
-            <div className="w-[1px] h-8 bg-white/30" />
-            <div className="w-2 h-2 rounded-full bg-white/70" />
-          </div>
-        )}
+        {/* Scroll Indicator */}
+        <div className="hidden sm:flex absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex-col items-center gap-2 animate-bounce">
+          <p className="text-xs text-white/70 uppercase tracking-widest">Scroll</p>
+          <div className="w-[1px] h-8 bg-white/30" />
+          <div className="w-2 h-2 rounded-full bg-white/70" />
+        </div>
       </div>
     </section>
   )
