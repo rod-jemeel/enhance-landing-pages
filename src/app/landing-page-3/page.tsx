@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import { NavbarProvider } from "@/contexts/navbar-context"
 import Navbar from "@/components/navbar"
 import ScrollNavbarController from "./_components/scroll-navbar-controller"
@@ -11,6 +12,36 @@ import TransformationQuoteSection from "./_sections/transformation-quote-section
 import SocialProofSection from "./_sections/social-proof-section"
 import CTASection from "./_sections/cta-section"
 import Footer from "./_sections/footer"
+
+export const metadata: Metadata = {
+  title: "Revolutionary Skincare Protocol | Professional Results at Home",
+  description: "Unlock the secret to ageless skin with our scientifically-formulated 3-step protocol. Trusted by dermatologists, loved by thousands worldwide.",
+  keywords: "revolutionary skincare, professional results, dermatologist recommended, anti-aging protocol, home skincare treatment, scientific skincare",
+  openGraph: {
+    title: "Revolutionary Skincare Protocol | Professional Results at Home",
+    description: "Unlock the secret to ageless skin with our scientifically-formulated 3-step protocol.",
+    type: "website",
+    locale: "en_US",
+    siteName: "Professional Skincare Protocol",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Revolutionary Skincare Protocol",
+    description: "Professional skincare results at home",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  viewport: "width=device-width, initial-scale=1",
+}
 
 export default function LandingPage() {
   return (
