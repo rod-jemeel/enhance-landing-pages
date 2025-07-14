@@ -14,20 +14,20 @@ import CTASection from "./_sections/cta-section"
 import Footer from "./_sections/footer"
 
 export const metadata: Metadata = {
-  title: "Transform Your Skin in 30 Days | Premium Skincare Protocol",
-  description: "Discover the revolutionary 3-step skincare protocol that delivers professional-grade results at home. Clinically proven to reduce wrinkles by 67% in just 30 days.",
-  keywords: "premium skincare, anti-aging, wrinkle reduction, skincare protocol, clinical results, luxury skincare",
+  title: "Transform Your Body in 30 Days | EnhanceMD",
+  description: "Discover personalized body transformation protocols grounded in clinical research. Designed for your body, guided by data, led by doctors. Start your science-backed transformation today.",
+  keywords: "body transformation, personalized treatment, clinical protocols, data-driven health, doctor-led transformation, modern science, health optimization",
   openGraph: {
-    title: "Transform Your Skin in 30 Days | Premium Skincare Protocol",
-    description: "Discover the revolutionary 3-step skincare protocol that delivers professional-grade results at home.",
+    title: "Transform Your Body in 30 Days | EnhanceMD",
+    description: "Personalized treatments grounded in clinical research. Designed for your body, guided by data, led by doctors.",
     type: "website",
     locale: "en_US",
-    siteName: "Premium Skincare Protocol",
+    siteName: "EnhanceMD",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Transform Your Skin in 30 Days",
-    description: "Revolutionary 3-step skincare protocol with clinical results",
+    title: "Transform Your Body in 30 Days",
+    description: "Science-backed body transformation protocols led by doctors",
   },
   robots: {
     index: true,

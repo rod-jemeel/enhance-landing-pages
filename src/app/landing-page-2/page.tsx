@@ -14,20 +14,20 @@ import CTASection from "./_sections/cta-section"
 import Footer from "./_sections/footer"
 
 export const metadata: Metadata = {
-  title: "Premium Anti-Aging Solution | Clinical Skincare Results",
-  description: "Experience the ultimate skincare transformation with our clinically-proven 3-step protocol. Join thousands who've achieved younger-looking skin in just 30 days.",
-  keywords: "clinical skincare, anti-aging treatment, professional skincare, wrinkle treatment, skin rejuvenation, luxury beauty",
+  title: "Premium Body Transformation Solution | EnhanceMD Clinical Results",
+  description: "Experience the ultimate body transformation with personalized treatments grounded in clinical research. Join thousands who've achieved their health goals with data-driven, doctor-led protocols.",
+  keywords: "clinical body transformation, personalized health treatment, professional protocols, data-driven wellness, health rejuvenation, modern medicine",
   openGraph: {
-    title: "Premium Anti-Aging Solution | Clinical Skincare Results",
-    description: "Experience the ultimate skincare transformation with our clinically-proven 3-step protocol.",
+    title: "Premium Body Transformation Solution | EnhanceMD Clinical Results",
+    description: "Personalized treatments grounded in clinical research. Designed for your body, guided by data, led by doctors.",
     type: "website",
     locale: "en_US",
-    siteName: "Clinical Skincare Protocol",
+    siteName: "EnhanceMD Clinical Protocol",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Premium Anti-Aging Solution",
-    description: "Clinically-proven skincare protocol for visible results",
+    title: "Premium Body Transformation Solution",
+    description: "Clinically-proven protocols for visible body transformation results",
   },
   robots: {
     index: true,

@@ -14,20 +14,20 @@ import CTASection from "./_sections/cta-section"
 import Footer from "./_sections/footer"
 
 export const metadata: Metadata = {
-  title: "Revolutionary Skincare Protocol | Professional Results at Home",
-  description: "Unlock the secret to ageless skin with our scientifically-formulated 3-step protocol. Trusted by dermatologists, loved by thousands worldwide.",
-  keywords: "revolutionary skincare, professional results, dermatologist recommended, anti-aging protocol, home skincare treatment, scientific skincare",
+  title: "Revolutionary Body Transformation Protocol | EnhanceMD Professional Results",
+  description: "Unlock your body's potential with scientifically-formulated, personalized protocols. Trusted by doctors, designed by data, loved by thousands worldwide.",
+  keywords: "revolutionary body transformation, professional health results, doctor recommended, personalized protocol, science-based treatment, modern wellness",
   openGraph: {
-    title: "Revolutionary Skincare Protocol | Professional Results at Home",
-    description: "Unlock the secret to ageless skin with our scientifically-formulated 3-step protocol.",
+    title: "Revolutionary Body Transformation Protocol | EnhanceMD Professional Results",
+    description: "Personalized treatments grounded in clinical research. Designed for your body, guided by data, led by doctors.",
     type: "website",
     locale: "en_US",
-    siteName: "Professional Skincare Protocol",
+    siteName: "EnhanceMD Professional Protocol",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Revolutionary Skincare Protocol",
-    description: "Professional skincare results at home",
+    title: "Revolutionary Body Transformation Protocol",
+    description: "Professional body transformation with personalized, data-driven protocols",
   },
   robots: {
     index: true,

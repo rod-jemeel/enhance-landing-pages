@@ -9,31 +9,31 @@ const lexend = Lexend({
 
 export const metadata: Metadata = {
   title: {
-    default: "Premium Skincare Protocol | Clinical Anti-Aging Solutions",
-    template: "%s | Premium Skincare"
+    default: "EnhanceMD - Transform Your Body with Modern Science",
+    template: "%s | EnhanceMD"
   },
-  description: "Experience revolutionary skincare with our clinically-proven 3-step protocol. Transform your skin in 30 days with professional-grade results at home.",
-  keywords: "premium skincare, anti-aging, clinical skincare, skincare protocol, professional results, luxury beauty, wrinkle reduction",
-  authors: [{ name: "Premium Skincare" }],
-  creator: "Premium Skincare",
-  publisher: "Premium Skincare",
+  description: "Personalized treatments grounded in clinical research. Designed for your body, guided by data, led by doctors. Transform your body with science-backed protocols.",
+  keywords: "body transformation, personalized medicine, clinical treatments, data-driven health, doctor-led protocols, modern science, body optimization, health transformation",
+  authors: [{ name: "EnhanceMD" }],
+  creator: "EnhanceMD",
+  publisher: "EnhanceMD",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://premiumskincare.com"),
+  metadataBase: new URL("https://enhancemd.com"),
   openGraph: {
-    title: "Premium Skincare Protocol | Clinical Anti-Aging Solutions",
-    description: "Experience revolutionary skincare with our clinically-proven 3-step protocol.",
-    url: "https://premiumskincare.com",
-    siteName: "Premium Skincare Protocol",
+    title: "EnhanceMD - Transform Your Body with Modern Science",
+    description: "Personalized treatments grounded in clinical research. Designed for your body, guided by data, led by doctors.",
+    url: "https://enhancemd.com",
+    siteName: "EnhanceMD",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Premium Skincare Protocol"
+        alt: "EnhanceMD - Body Transformation"
       }
     ],
     locale: "en_US",
@@ -41,8 +41,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Premium Skincare Protocol",
-    description: "Revolutionary 3-step skincare with clinical results",
+    title: "EnhanceMD - Transform Your Body",
+    description: "Personalized treatments grounded in clinical research. Led by doctors.",
     images: ["/twitter-image.jpg"],
   },
   robots: {
